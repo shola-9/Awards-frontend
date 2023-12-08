@@ -1,0 +1,135 @@
+.nav {
+  background: linear-gradient(93deg, #029018 -14.19%, #001604 107.55%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.nonActive {
+  padding: 0.3rem;
+  color: #ffffff;
+}
+
+.dropdown {
+  border: none;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 1rem;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.dropdown:hover {
+  cursor: pointer;
+}
+
+.dropdownContentDiv {
+  position: absolute;
+  background-color: #ffffff;
+  right: 2rem;
+  top: 10.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.dropdownContent {
+  color: #000000;
+  display: block;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.dropdownContentSecondLink {
+  margin-top: 0.5rem;
+}
+
+.current {
+  background-color: #027414;
+  color: white;
+  border-bottom: 2px solid #ffffff;
+  padding: 0.3rem;
+}
+
+.nav section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  width: 16rem;
+  height: 4rem;
+}
+
+.nav section a {
+  /* color: #ffffff; */
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav section a:hover {
+  cursor: pointer;
+}
+
+.header {
+  background-color: #ffffff;
+  padding: 2rem;
+}
+
+.footer {
+  background: linear-gradient(76deg, #046413 8.81%, #07ae21 90.01%);
+}
+
+.showOnMobileBtn {
+  display: none;
+}
+
+/* nav responsiveness */
+@media screen and (max-width: 720px) {
+  .hideOnMobile {
+    display: none;
+  }
+
+  .timeToDisplay {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .nav section {
+    display: block;
+    position: sticky;
+    background-color: purple;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+  }
+
+  .nav section a {
+    display: block;
+  }
+
+  .showOnMobileBtn {
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 18%;
+    z-index: 3;
+    background-color: #ffffff;
+    border: none;
+  }
+}

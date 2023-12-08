@@ -1,0 +1,20 @@
+.input {
+  width: 100%;
+  background-color: #f4fff6;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 0.5rem;
+}
+
+/* form button {
+  background-color: #028a17;
+  color: #ffffff;
+  border: none;
+} */
+
+.btnDiv {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.3rem;
+}

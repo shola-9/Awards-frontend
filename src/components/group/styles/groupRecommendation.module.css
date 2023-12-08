@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 4rem 0;
+}
+
+.container .card {
+  width: 18rem;
+  border-radius: 0.625rem;
+  box-shadow: 0rem 0.5rem 1rem 0rem rgba(0, 0, 0, 0.15);
+}
+
+.container img {
+  width: 100%;
+  height: 50%;
+  border-radius: 0.625rem 0.625rem 0px 0px;
+}
+
+.card h5 {
+  color: #333;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.card .info {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.info p:nth-of-type(1) {
+  color: #333;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-right: auto;
+}
+
+.info p:nth-of-type(2) {
+  color: #333;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.container a {
+  padding: 0.625rem;
+  gap: 0.625rem;
+  border-radius: 0.3125rem;
+  background: #046413;
+  color: #fff;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+  margin: 0 1rem;
+}

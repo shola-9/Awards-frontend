@@ -1,0 +1,18 @@
+.postReactionContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.postReactionContainer div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.postReactionContainer div p {
+  margin: 0%;
+}
+
+.postReactionContainer img:hover {
+  cursor: pointer;
+}

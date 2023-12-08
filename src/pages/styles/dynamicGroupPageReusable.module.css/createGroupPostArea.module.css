@@ -1,0 +1,28 @@
+.createGroupPostArea {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.createGroupPostArea .userImg {
+  width: 2.6875rem;
+  height: 2.6875rem;
+  flex-shrink: 0;
+  border-radius: 2.6875rem;
+}
+
+.createGroupPostArea .userImg img {
+  width: 2.6875rem;
+  height: 2.6875rem;
+  flex-shrink: 0;
+  border-radius: 2.6875rem;
+}
+.postErr {
+  color: #e40d0d;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .createGroupPostArea {
+    display: block;
+  }
+}

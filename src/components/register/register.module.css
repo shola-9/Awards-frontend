@@ -1,0 +1,189 @@
+.registerFormSection {
+  position: fixed;
+  width: 43rem;
+  height: 34.3125rem;
+  flex-shrink: 0;
+  background-color: #d9d9d9;
+  top: 5%;
+  left: 25%;
+  z-index: 1;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 80%;
+}
+
+.form {
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form input {
+  width: 98%;
+  margin-top: 1rem;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-bottom-color: #000000;
+  background-color: #d9d9d9;
+}
+
+.form .submitBtn {
+  display: flex;
+  width: 21.1875rem;
+  padding: 0.625rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background-color: #046413;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136.4%;
+  border: none;
+  margin-top: 1rem;
+}
+
+.form .submitBtn:hover {
+  cursor: pointer;
+}
+
+.loginOption {
+  text-align: center;
+}
+
+.loginOption p {
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 136.4%;
+}
+
+.loginOptionLink {
+  color: #3ba8f6;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 136.4%;
+  text-decoration: none;
+  background: none;
+  border: none;
+}
+
+.loginOptionLink:hover {
+  cursor: pointer;
+}
+
+.passwordErrorDiv {
+  height: 1.5rem;
+}
+
+.passwordError {
+  color: #ff3321;
+}
+
+.disabled {
+  display: flex;
+  width: 21.1875rem;
+  padding: 0.625rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background-color: #cccccc;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136.4%;
+  border: none;
+  margin-top: 1rem;
+}
+
+.container .closeForm {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+
+.container .closeForm:hover {
+  cursor: pointer;
+}
+
+.robotCheck {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 720px) {
+  .registerFormSection {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    background-color: #d9d9d9;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 0;
+  }
+  .container {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+  }
+  .form .submitBtn {
+    display: flex;
+    width: 100%;
+    padding: 0.625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    background-color: #046413;
+    color: #ffffff;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 136.4%;
+    border: none;
+    margin-top: 1rem;
+  }
+  .disabled {
+    display: flex;
+    width: 100%;
+    padding: 0.625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    background-color: #cccccc;
+    color: #ffffff;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 136.4%;
+    border: none;
+    margin-top: 1rem;
+  }
+}

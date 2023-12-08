@@ -1,0 +1,50 @@
+.clubPostForm {
+  width: 100%;
+}
+
+.clubPostForm textarea {
+  border: 0.0625rem solid #028a17;
+  resize: none;
+  width: 99%;
+  height: 3.0625rem;
+  flex-shrink: 0;
+}
+
+.clubPostForm .buttonsArea {
+  display: flex;
+  gap: 1rem;
+}
+
+.submitBtn {
+  width: 11.6875rem;
+  height: 2.25rem;
+  background-color: #028a17;
+  border: none;
+  color: var(--Essential-White, #f8f8f8);
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .clubPostForm {
+    width: 24rem;
+  }
+  .clubPostForm textarea {
+    border: 0.0625rem solid #028a17;
+    resize: none;
+    width: 100%;
+    height: 3.0625rem;
+    flex-shrink: 0;
+    margin-top: 1rem;
+  }
+  .clubPostForm .buttonsArea {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+}

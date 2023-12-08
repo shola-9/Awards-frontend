@@ -1,0 +1,14 @@
+.container {
+  width: fit-content;
+  display: flex;
+  gap: 1rem;
+}
+
+.story {
+  height: fit-content;
+  width: 14rem;
+}
+
+.story video {
+  width: 100%;
+}

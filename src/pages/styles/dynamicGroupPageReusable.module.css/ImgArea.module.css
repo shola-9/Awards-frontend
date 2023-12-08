@@ -1,0 +1,50 @@
+.imgArea {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.imgArea img {
+  width: 100%;
+}
+
+.viewMembersOrPostArea {
+  display: flex;
+  padding: 0 2rem;
+}
+
+.viewMembersOrPostArea div {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.viewMembersOrPostArea div:nth-of-type(1) {
+  margin-right: auto;
+}
+
+.viewMembersOrPostArea button {
+  width: 9.0625rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border: none;
+}
+
+/* .viewMembersOrPostArea div:nth-of-type(2)  {
+  background-color: #028a17;
+  display: flex;
+  width: 18.1875rem;
+  height: 2.9375rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+} */
+
+@media screen and (max-width: 720px) {
+  .viewMembersOrPostArea {
+    display: block;
+  }
+}

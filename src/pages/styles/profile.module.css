@@ -1,0 +1,39 @@
+.container {
+  background-color: #ffffff;
+}
+
+.profileBodyArea {
+  background-color: #f3fcf4;
+  width: 100%;
+}
+
+.profileBodyArea h4 {
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136.4%;
+  margin-left: 1rem;
+}
+
+.storyArea {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.storyDiv {
+  margin-left: 3rem;
+}
+
+.storyDiv h4 {
+  color: #046413;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}

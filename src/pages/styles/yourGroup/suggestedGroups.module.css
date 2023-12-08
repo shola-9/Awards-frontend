@@ -1,0 +1,42 @@
+.groupSuggestionArea .groupArea {
+  display: flex;
+  width: 90%;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.groupSuggestionArea .card {
+  border-radius: 0.625rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.groupSuggestionArea .card img {
+  width: 100%;
+  border-radius: 0.625rem;
+  height: 11rem;
+}
+
+.groupSuggestionArea h5 {
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.groupSuggestionArea a {
+  display: flex;
+  width: 6.3125rem;
+  height: 1.25rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.3125rem;
+  background: #046413;
+  text-decoration: none;
+  color: #ffffff;
+}

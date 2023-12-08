@@ -1,0 +1,26 @@
+.body {
+  display: flex;
+  gap: 1rem;
+  padding: 3rem;
+}
+
+.body .firstHalfContent {
+  max-width: 50%;
+}
+
+/* .body .secondHalfContent {
+  border: 19px solid red;
+} */
+
+@media screen and (max-width: 720px) {
+  .body {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0.3rem;
+    margin: 0.3rem;
+  }
+  .createGroupPostDiv {
+    width: 100%;
+    /* margin: 1rem 0 0 0; */
+  }
+}

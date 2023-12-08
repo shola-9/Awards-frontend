@@ -1,0 +1,47 @@
+.container {
+  background-color: #effbf1;
+  min-width: 20%;
+  padding: 2rem;
+}
+
+.container .header {
+  display: flex;
+  align-items: center;
+}
+
+.container .header h4 {
+  margin-right: auto;
+}
+
+.container .header button {
+  background-color: #ffffff;
+  border: none;
+  display: flex;
+  width: 6.25rem;
+  height: 1.9375rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.container img {
+  width: 4.125rem;
+  height: 4.125rem;
+  border-radius: 4.125rem;
+}
+
+.container .group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.container .group a {
+  text-decoration: none;
+  color: #000;
+  font-family: "Montserrat";
+  font-size: 1.0625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 136.4%;
+}

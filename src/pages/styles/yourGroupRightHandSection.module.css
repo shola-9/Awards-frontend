@@ -1,0 +1,56 @@
+.mainContainer {
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.searchBarContainer {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.searchBarContainer a {
+  display: flex;
+  width: fit-content;
+  height: 2.1rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+  background-color: #046413;
+  border: none;
+  color: #ffffff;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btnText {
+  color: #fff;
+  font-family: "Jacques Francois", serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.searchBarContainer a:hover {
+  cursor: pointer;
+}
+
+.searchBarContainer .searchInput {
+  border: 1px solid #028a17;
+  width: 37.75rem;
+  height: 2.9375rem;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 720px) {
+}

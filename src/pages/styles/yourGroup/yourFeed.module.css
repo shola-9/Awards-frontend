@@ -1,0 +1,12 @@
+/* .yourFeedArea {
+  border: 1px solid red;
+} */
+
+.yourFeedArea h4 {
+  color: #000;
+  font-family: "Montserrat";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136.4%;
+}

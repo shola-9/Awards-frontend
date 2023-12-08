@@ -1,0 +1,14 @@
+/* .mainContainer {
+  border: 21px solid red;
+  width: 100%;
+} */
+
+.mainContainer > * button.green {
+  background-color: #028a17;
+  border: none;
+  color: #ffffff;
+}
+
+.mainContainer > * button:hover {
+  cursor: pointer;
+}

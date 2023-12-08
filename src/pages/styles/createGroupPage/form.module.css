@@ -1,0 +1,100 @@
+.form {
+  width: 56.4375rem;
+  height: fit-content;
+  flex-shrink: 0;
+  background-color: #effbf1;
+  position: relative;
+  margin: 3rem auto 6rem auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem;
+}
+
+.form input,
+.form textarea {
+  background-color: #effbf1;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.form .firstDiv {
+  width: 80%;
+}
+
+.form .firstDiv input,
+.form .firstDiv textarea,
+form .firstDiv select {
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.form .firstDiv textarea {
+  resize: none;
+}
+
+.form button {
+  background-color: #046413;
+  display: flex;
+  width: 39.9375rem;
+  padding: 0.625rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136.4%; /* 32.736px */
+}
+
+.form button:hover {
+  cursor: pointer;
+}
+
+form .firstDiv select {
+  padding: 0.5rem;
+  background-color: #effbf1;
+}
+
+.form .checkboxDiv {
+  padding: 4rem 6rem;
+}
+
+@media screen and (max-width: 720px) {
+  .form {
+    width: 100%;
+    height: fit-content;
+    flex-shrink: 0;
+    background-color: #effbf1;
+    position: relative;
+    margin: 3rem auto 6rem auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+  }
+  .form button {
+    background-color: #046413;
+    display: flex;
+    width: 90%;
+    padding: 0.625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-family: "Montserrat";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 136.4%; /* 32.736px */
+  }
+}
