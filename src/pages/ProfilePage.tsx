@@ -4,19 +4,39 @@ import { useQuery } from "@tanstack/react-query";
 import getUserInfoFn from "../lib/user/getUserInfo";
 import styles from "./styles/profile.module.css";
 import stylesOne from "./styles/profile/profileDetails.module.css";
-import { UploadStoryArea } from "../components/users/uploadStoryArea";
+import { UploadStoryArea } from "../components/users/UploadStoryArea";
 import StoriesShowCase from "../components/story/StoriesShowCase";
 import StoryByUserId from "../components/story/StoryByUserId";
 import GetGroupPostsByUserId from "../components/group/GetGroupPostByUserId";
 import logOutFn from "../lib/user/logOut";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import ChangePasswordForm from "../components/users/ChangePasswordForm";
+import Cookies from "js-cookie";
 
 function ProfilePage() {
   const navigate = useNavigate();
+  const [showMore, setShowMore] = useState(false);
+  const [showChangePasswordArea, setShowChangePasswordArea] = useState(false);
+  const token = Cookies.get("token");
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, [token, navigate]);
+
   const profileInfoQuery = useQuery({
     queryKey: ["profileInfo"],
     queryFn: getUserInfoFn,
   });
+
+  function handleShowMore() {
+    setShowMore((prev) => !prev);
+    if (showChangePasswordArea) {
+      setShowChangePasswordArea(false);
+    }
+  }
 
   async function handleLogOut() {
     await logOutFn();
@@ -24,7 +44,7 @@ function ProfilePage() {
   }
 
   if (profileInfoQuery.isLoading) return <h1>Loading...</h1>;
-  if (profileInfoQuery.isError) return <h1>Error</h1>;
+  if (profileInfoQuery.isError) return <p>No data yet. Check back later</p>; // most likely, redirect to login page.
 
   if (!profileInfoQuery.data) return <h1>No data</h1>;
   if (
@@ -39,12 +59,18 @@ function ProfilePage() {
         <div className={stylesOne.profileDetails}>
           <div>
             {profileInfoQuery.data.user.user_img ? (
-              <img src={profileInfoQuery.data.user.user_img} alt="profile" />
+              <img
+                src={profileInfoQuery.data.user.user_img}
+                alt="profile"
+              />
             ) : (
-              <img src="/Ellipse 48.svg" alt="profile" />
+              <img
+                src="/Ellipse 48.svg"
+                alt="profile"
+              />
             )}
           </div>
-          <div>
+          <div className={stylesOne.details}>
             <div>
               <p className={stylesOne.username}>
                 {profileInfoQuery.data.user.username}
@@ -55,32 +81,57 @@ function ProfilePage() {
               <p>{profileInfoQuery.data.user.email}</p>
             </div>
           </div>
-          <div>
-            <button onClick={handleLogOut}>log out</button>
+          <div className={stylesOne.moreContainer}>
+            <div>
+              <button
+                className={stylesOne.moreBtn}
+                onClick={handleShowMore}
+              >
+                More{" "}
+                {showMore ? (
+                  <img
+                    src="/Vector 19b.svg"
+                    alt="down arrow"
+                  />
+                ) : (
+                  <img
+                    src="/Vector 19.svg"
+                    alt="up arrow"
+                  />
+                )}
+              </button>
+            </div>
+            {showMore && (
+              <div className={stylesOne.moreDetails}>
+                <div>
+                  <button
+                    onClick={(e) => setShowChangePasswordArea((prev) => !prev)}
+                  >
+                    Change password
+                  </button>
+                </div>
+                <div>
+                  <button onClick={handleLogOut}>Log out</button>
+                </div>
+              </div>
+            )}
           </div>
-          <div className={stylesOne.divider}></div>
         </div>
       )}
+      {showChangePasswordArea && <ChangePasswordForm />}
+      <div className={stylesOne.divider}></div>
       <div className={styles.storyDiv}>
         <h4>Stories</h4>
         <StoriesShowCase />
       </div>
-      <div
-        style={{
-          display: "flex",
-          padding: "4rem",
-          gap: "2rem",
-          width: "100%",
-          boxSizing: "border-box",
-        }}
-      >
+      <div className={styles.profileBodyContainer}>
         <section className={styles.profileBodyArea}>
           <h4>Post</h4>
           <div className={styles.storyArea}>
             <UploadStoryArea profileImg={profileInfoQuery.data.user.user_img} />
             <StoryByUserId />
           </div>
-          <div>
+          <div style={{ width: "100%" }}>
             <GetGroupPostsByUserId />
           </div>
         </section>

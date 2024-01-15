@@ -28,15 +28,7 @@ function WinnerPage(): JSX.Element {
   if (postsQuery.isLoading) return <h1>Loading...</h1>;
 
   // check for error
-  if (postsQuery.isError)
-    return (
-      <div className={styles.errorMsg}>
-        <h5>
-          Failed to load data.{" "}
-          <button onClick={() => postsQuery.refetch()}>Try again</button> later.
-        </h5>
-      </div>
-    );
+  if (postsQuery.isError) return <p>No data yet. Check back later</p>;
 
   return (
     <article className={styles.winnerPageContainer}>
@@ -49,7 +41,10 @@ function WinnerPage(): JSX.Element {
           onChange={(e) => setYear(e.target.value)}
           defaultValue={"DEFAULT"}
         >
-          <option disabled value="DEFAULT">
+          <option
+            disabled
+            value="DEFAULT"
+          >
             Select year
           </option>
           <option value="2023">2023</option>

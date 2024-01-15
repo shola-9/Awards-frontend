@@ -1,0 +1,61 @@
+.awardCContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+  width: 90%;
+  margin: 3rem auto;
+}
+
+.awardCContainer .card {
+  height: fit-content;
+  width: 20%;
+  text-align: center;
+  padding: 1.5rem 4rem;
+  text-decoration: none;
+  margin-bottom: 1%;
+  background-color: #046413;
+  color: #ffffff;
+  font-family: "Jacques Francois";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  border-radius: 0.625rem;
+}
+
+.awardCContainer .card:hover {
+  background-color: #ffffff;
+  color: #046413;
+  border: 0.125rem solid #046413;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+  .awardCContainer {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+    justify-content: center;
+    width: 95%;
+    margin: 3rem auto;
+  }
+  .awardCContainer .card {
+    height: fit-content;
+    width: 90%;
+    text-align: center;
+    padding: 1.5rem 4rem;
+    text-decoration: none;
+    margin-bottom: 1%;
+    background-color: #046413;
+    color: #ffffff;
+    font-family: "Jacques Francois";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    border-radius: 0.625rem;
+  }
+}

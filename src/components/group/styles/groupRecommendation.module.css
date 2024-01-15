@@ -67,3 +67,20 @@
   text-decoration: none;
   margin: 0 1rem;
 }
+
+@media screen and (max-width: 720px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 4rem auto;
+    align-items: center;
+  }
+  .container .card {
+    width: 18rem;
+    border-radius: 0.625rem;
+    box-shadow: 0rem 0.5rem 1rem 0rem rgba(0, 0, 0, 0.15);
+    height: fit-content;
+    min-height: 22rem;
+  }
+}

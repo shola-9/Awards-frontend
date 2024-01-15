@@ -183,12 +183,65 @@
 /* media query */
 @media screen and (max-width: 720px) {
   .topCardContainer {
-    display: block;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    /* gap: 3rem; */
+    gap: 9rem;
   }
   .topCard {
     position: relative;
     width: 100%;
+  }
+  .topCardContent {
+    position: absolute;
+    z-index: 1;
+    top: 5%;
+    height: fit-content;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .topCardContent p {
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 10rem auto 3rem auto;
+    width: 90%;
+    height: 1.6875rem;
+    flex-shrink: 0;
+  }
+  .bottomCardContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    width: 95%;
+    margin: 9rem auto 0 auto;
+    height: fit-content;
+  }
+
+  .bottomCardImg {
+    width: 95vw;
+  }
+
+  .bottomCardContent {
+    position: absolute;
+    z-index: 1;
+    top: 5%;
+    height: 100%;
+    margin: 0 auto;
+    width: 95vw;
+  }
+  .overlayBottom {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.77) 16.53%,
+      rgba(0, 0, 0, 0) 92.36%
+    );
+    position: absolute;
+    width: 95vw;
+    height: 14.2rem;
   }
 }

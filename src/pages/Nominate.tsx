@@ -50,17 +50,7 @@ function NominatePage() {
   }
 
   if (showcasedNominationsQuery.isError)
-    return (
-      <div className={styles.errorMsg}>
-        <h5>
-          Failed to load data.{" "}
-          <button onClick={() => showcasedNominationsQuery.refetch()}>
-            Try again
-          </button>{" "}
-          later.
-        </h5>
-      </div>
-    );
+    return <p>No data yet. Check back later</p>;
 
   return (
     <>

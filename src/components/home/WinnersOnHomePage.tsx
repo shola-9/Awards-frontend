@@ -16,12 +16,13 @@ const WinnersOnHomePage = (): JSX.Element => {
   // check for error
   if (postsQuery.isError)
     return (
-      <div className={styles.errorMsg}>
-        <h5>
-          Failed to load data.{" "}
-          <button onClick={() => postsQuery.refetch()}>Try again</button> later.
-        </h5>
-      </div>
+      // <div className={styles.errorMsg}>
+      //   <h5>
+      //     Failed to load data.{" "}
+      //     <button onClick={() => postsQuery.refetch()}>Try again</button> later.
+      //   </h5>
+      // </div>
+      <p>No data yet. Check back later</p>
     );
 
   // map the posts and return the jsx

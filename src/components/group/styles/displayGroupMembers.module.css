@@ -1,4 +1,12 @@
-.container p {
+.card {
+  margin-top: 3rem;
   background-color: #f4fff6;
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+  padding: 0 1rem;
+}
+
+.card a {
+  text-decoration: none;
 }

@@ -1,0 +1,7 @@
+.chatBody .receiver {
+  background-color: rgb(125, 125, 205);
+}
+
+.chatBody .sender {
+  background-color: rgb(135, 74, 74);
+}

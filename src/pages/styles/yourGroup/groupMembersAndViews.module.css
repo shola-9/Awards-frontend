@@ -45,3 +45,11 @@
   font-weight: 400;
   line-height: 136.4%;
 }
+
+@media screen and (max-width: 720px) {
+  .container {
+    background-color: #effbf1;
+    min-width: 20%;
+    padding: 2rem;
+  }
+}

@@ -22,7 +22,7 @@ function DynamicStoriesPage() {
   }
 
   if (getStoryByStoryQuery.isError) {
-    return <div>Error: {getStoryByStoryQuery.error.message}</div>;
+    return <p>No data yet. Check back later</p>;
   }
   if (!getStoryByStoryQuery.data) {
     return <div>No data to return</div>;
@@ -38,11 +38,26 @@ function DynamicStoriesPage() {
               index === 0 ? `${styles.firstStory}` : `${styles.otherStories}`
             }
           >
-            <video controls className={styles.video}>
-              <source src={story.story} type="video/mp4" />
-              <source src={story.story} type="video/webm" />
-              <source src={story.story} type="video/mov" />
-              <source src={story.story} type="video/avi" />
+            <video
+              controls
+              className={styles.video}
+            >
+              <source
+                src={story.story}
+                type="video/mp4"
+              />
+              <source
+                src={story.story}
+                type="video/webm"
+              />
+              <source
+                src={story.story}
+                type="video/mov"
+              />
+              <source
+                src={story.story}
+                type="video/avi"
+              />
             </video>
           </div>
         ))}

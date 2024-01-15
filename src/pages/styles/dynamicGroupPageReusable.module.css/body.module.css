@@ -8,10 +8,6 @@
   max-width: 50%;
 }
 
-/* .body .secondHalfContent {
-  border: 19px solid red;
-} */
-
 @media screen and (max-width: 720px) {
   .body {
     display: flex;

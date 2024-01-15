@@ -8,12 +8,14 @@ export const authFn = async (
     password,
     users_phone_number,
     token,
+    setErrMsg,
   }: {
     username?: string;
     email: string;
     password: string;
     users_phone_number?: string;
     token?: string;
+    setErrMsg: React.Dispatch<React.SetStateAction<string>>;
   },
   identifier: string
 ): Promise<Auth> => {
@@ -53,11 +55,26 @@ export const authFn = async (
   // check for if res fails
   if (!res.ok) {
     const exactErrorMsg = await res.json();
-    throw new Error(
-      `Request failed with status ${Object.entries(
-        res.status
-      )}, ${Object.entries(exactErrorMsg)}`
-    );
+
+    // Set the error message in the state
+    if (res.status === 400) {
+      setErrMsg("Email already registered. Please login.");
+    } else if (res.status === 401) {
+      setErrMsg("Invalid email or password.");
+    } else if (res.status === 403) {
+      setErrMsg("Access denied.");
+    } else {
+      console.log(
+        `Request failed with status ${res.status}, ${JSON.stringify(
+          exactErrorMsg
+        )}`
+      );
+
+      setErrMsg("Internal server error. Please try again later.");
+    }
+
+    // Throw an error to stop further execution
+    throw new Error("Request failed");
   }
 
   // get good res at this stage

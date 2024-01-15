@@ -7,6 +7,7 @@ import {
   Link,
   Outlet,
   RouterProvider,
+  useNavigate,
 } from "react-router-dom";
 import HomePage from "./pages/Home";
 import AboutUsPage from "./pages/AboutUs";
@@ -33,40 +34,141 @@ import CreateGroup from "./pages/CreateGroup";
 import DynamicGroupPage from "./pages/DynamicGroupPage";
 import ProfilePage from "./pages/ProfilePage";
 import DynamicStoriesPage from "./pages/DynamicStoriesPage";
+import UploadShortVideo from "./pages/UploadShortVideo";
+import LoginPage from "./pages/Login";
+import SignUpPage from "./pages/SignUp";
+import Cookies from "js-cookie";
+import DynamicChatPage from "./pages/DynamicChat";
+import DynamicAncestries from "./pages/DynamicAncestries";
+import AncestriesPage from "./pages/Ancestries";
+import VotePage from "./pages/votePage";
+import DynamicVoteAwardPage from "./pages/dynamicVoteAward";
+import logOutFn from "./lib/user/logOut";
+import getUserInfoFn from "./lib/user/getUserInfo";
+import { useQuery } from "@tanstack/react-query";
 
 function App(): JSX.Element {
   // create routes
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Root />}>
-        <Route index element={<HomePage />} />
-        <Route path="about-us" element={<AboutUsPage />} />
-        <Route path="our-partners" element={<OurPartnersPage />} />
-        <Route path="nominate" element={<NominatePage />} />
-        <Route path="winner" element={<WinnerPage />} />
+      <Route
+        path="/"
+        element={<Root />}
+      >
+        <Route
+          index
+          element={<HomePage />}
+        />
+        <Route
+          path="about-us"
+          element={<AboutUsPage />}
+        />
+        <Route
+          path="our-partners"
+          element={<OurPartnersPage />}
+        />
+        <Route
+          path="nominate"
+          element={<NominatePage />}
+        />
+        <Route
+          path="winner"
+          element={<WinnerPage />}
+        />
         <Route
           path="pride-of-nigeria-fund"
           element={<PrideOfNigeriaFundPage />}
         />
-        <Route path="award-types" element={<AwardTypesPage />} />
-        <Route path="gallary" element={<GallaryPage />} />
-        <Route path="regional-awards" element={<RegionalAwardsPage />} />
-        <Route path="past-heros" element={<PastHerosPage />} />
-        <Route path="short-videos" element={<ShortVideos />} />
+        <Route
+          path="award-types"
+          element={<AwardTypesPage />}
+        />
+        <Route
+          path="gallary"
+          element={<GallaryPage />}
+        />
+        <Route
+          path="regional-awards"
+          element={<RegionalAwardsPage />}
+        />
+        <Route
+          path="past-heros"
+          element={<PastHerosPage />}
+        />
+        <Route
+          path="short-videos"
+          element={<ShortVideos />}
+        />
 
         {/*  */}
-        <Route path="nominate-form" element={<NominateFormPage />} />
-        <Route path="form-submitted" element={<FormSubmissionMsg />} />
-        <Route path="post/:post_id" element={<DynamicPostPage />} />
+        <Route
+          path="nominate-form"
+          element={<NominateFormPage />}
+        />
+        <Route
+          path="form-submitted"
+          element={<FormSubmissionMsg />}
+        />
+        <Route
+          path="post/:post_id"
+          element={<DynamicPostPage />}
+        />
         <Route
           path="short-videos/:video_id"
           element={<DynamicShortVideoPage />}
         />
-        <Route path="your-groups" element={<YourGroupPage />} />
-        <Route path="create-group" element={<CreateGroup />} />
-        <Route path="group/:club_id" element={<DynamicGroupPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="story/:story_id" element={<DynamicStoriesPage />} />
+        <Route
+          path="your-groups"
+          element={<YourGroupPage />}
+        />
+        <Route
+          path="create-group"
+          element={<CreateGroup />}
+        />
+        <Route
+          path="group/:club_id"
+          element={<DynamicGroupPage />}
+        />
+        <Route
+          path="/profile"
+          element={<ProfilePage />}
+        />
+        <Route
+          path="story/:story_id"
+          element={<DynamicStoriesPage />}
+        />
+        <Route
+          path="create-short-video"
+          element={<UploadShortVideo />}
+        />
+        <Route
+          path="login"
+          element={<LoginPage />}
+        />
+        <Route
+          path="sign-up"
+          element={<SignUpPage />}
+        />
+        <Route
+          path="chat/:receiver_id"
+          element={<DynamicChatPage />}
+        />
+        <Route
+          path="ancestries/:ancestries_id"
+          element={<DynamicAncestries />}
+        />
+        <Route
+          path="ancestry-posts"
+          element={<AncestriesPage />}
+        />
+        <Route
+          path="vote"
+          element={<VotePage />}
+        />
+        <Route
+          path="/award/:award_id"
+          element={<DynamicVoteAwardPage />}
+        />
       </Route>
     )
   );
@@ -84,6 +186,13 @@ const Root = (): JSX.Element => {
   const location = useLocation();
   const [showDropDown, setShowDropDown] = useState(false);
   const [hideOnMobile, setHideOnMobile] = useState(false);
+  const token = Cookies.get("token");
+  const navigate = useNavigate();
+
+  async function handleLogOut() {
+    await logOutFn();
+    navigate("/");
+  }
 
   const handleDropDown = () => {
     setShowDropDown((prevState) => !prevState);
@@ -92,6 +201,14 @@ const Root = (): JSX.Element => {
   const handleHideOnMobile = () => {
     setHideOnMobile((prevState) => !prevState);
   };
+
+  const profileInfoQuery = useQuery({
+    queryKey: ["profileInfo"],
+    queryFn: getUserInfoFn,
+  });
+
+  if (profileInfoQuery.isLoading) return <p>loading...</p>;
+  if (profileInfoQuery.isError) return <p>No data yet. Check back later</p>;
 
   return (
     <>
@@ -104,6 +221,36 @@ const Root = (): JSX.Element => {
               className="logo"
             />
           </Link>
+          {token ? (
+            <div className="lScreenDisplay">
+              <div>Hi, {profileInfoQuery.data?.user.username}</div>
+              <button
+                className="logOutBtn"
+                onClick={handleLogOut}
+              >
+                Log out
+              </button>
+            </div>
+          ) : (
+            <div className="lScreenDisplay">
+              <Link
+                to="login"
+                className={
+                  location.pathname === "/login" ? "current" : "nonActive"
+                }
+              >
+                Login
+              </Link>
+              <Link
+                to="sign-up"
+                className={
+                  location.pathname === "/sign-up" ? "current" : "nonActive"
+                }
+              >
+                Sign up
+              </Link>
+            </div>
+          )}
         </div>
 
         <div className={hideOnMobile ? "timeToDisplay" : "hideOnMobile"}>
@@ -190,12 +337,22 @@ const Root = (): JSX.Element => {
             >
               Past Heros
             </Link>
-            <button className="dropdown" onClick={handleDropDown}>
-              More <img src="/Vector 39.svg" alt="drop down arrow" />
+            <button
+              className="dropdown"
+              onClick={handleDropDown}
+            >
+              More{" "}
+              <img
+                src="/Vector 39.svg"
+                alt="drop down arrow"
+              />
             </button>
             {showDropDown && (
               <div className="dropdownContentDiv">
-                <Link to="your-groups" className="dropdownContent">
+                <Link
+                  to="your-groups"
+                  className="dropdownContent"
+                >
                   Group
                 </Link>
                 <Link
@@ -204,12 +361,53 @@ const Root = (): JSX.Element => {
                 >
                   Reels
                 </Link>
+                <Link
+                  to="vote"
+                  className="dropdownContent dropdownContentSecondLink"
+                >
+                  Vote
+                </Link>
+                {/* mobile only */}
+                {token ? (
+                  <div className="sScreenDisplay">
+                    <Link
+                      to="profile"
+                      className="dropdownContent dropdownContentSecondLink"
+                    >
+                      Profile
+                    </Link>
+                    <button
+                      className="logOutBtn"
+                      onClick={handleLogOut}
+                    >
+                      Log out
+                    </button>
+                  </div>
+                ) : (
+                  <div className="sScreenDisplay">
+                    <Link
+                      to="login"
+                      className="dropdownContent dropdownContentSecondLink"
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      to="sign-up"
+                      className="dropdownContent dropdownContentSecondLink"
+                    >
+                      Sign up
+                    </Link>
+                  </div>
+                )}
               </div>
             )}
           </section>
         </div>
 
-        <button className="showOnMobileBtn" onClick={handleHideOnMobile}>
+        <button
+          className="showOnMobileBtn"
+          onClick={handleHideOnMobile}
+        >
           {hideOnMobile ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -242,6 +440,7 @@ const Root = (): JSX.Element => {
       <header className="header">
         <Header />
       </header>
+      {/* style={{ overflowX: "hidden" }} */}
       <main>
         {" "}
         {/* displays current page */}

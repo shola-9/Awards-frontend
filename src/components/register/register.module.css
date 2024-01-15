@@ -17,6 +17,10 @@
   height: 80%;
 }
 
+.specialHeight {
+  height: 100%;
+}
+
 .form {
   margin: 0 auto;
   width: 100%;
@@ -25,12 +29,12 @@
 
 .form input {
   width: 98%;
-  margin-top: 1rem;
   border-right: none;
   border-left: none;
   border-top: none;
   border-bottom-color: #000000;
   background-color: #d9d9d9;
+  height: 2rem;
 }
 
 .form .submitBtn {
@@ -120,12 +124,29 @@
   right: 5%;
 }
 
+.container form .label {
+  height: 2rem;
+}
+
+.container form .label p {
+  margin: 0;
+}
+
 .container .closeForm:hover {
   cursor: pointer;
 }
 
 .robotCheck {
-  margin-top: 2rem;
+  margin-top: 0;
+}
+
+.errMsg {
+  color: #bb2121;
+}
+
+.form .passwordToggle {
+  border: none;
+  text-align: left;
 }
 
 @media screen and (max-width: 720px) {

@@ -5,6 +5,9 @@ import styles from "./styles/home.module.css";
 import { useNavigate } from "react-router-dom";
 import StoriesShowCase from "../components/story/StoriesShowCase";
 import GroupRecommendation from "../components/group/GroupRecommendation";
+import { Link } from "react-router-dom";
+import Ancestries from "../components/ancestries/ancestries";
+import DisplayStatsParent from "../components/vote/stats/displayStatsParent";
 
 const HomePage = (): JSX.Element => {
   const navigate = useNavigate();
@@ -23,7 +26,7 @@ const HomePage = (): JSX.Element => {
         className={`${styles.heroImg}`}
       />
       <section>
-        <h2>KNOW YOUR HEROS</h2>
+        <h2>KNOW YOUR HEROES</h2>
         <p>
           These are some randoms words that will be replaced as soon a possible.
           The purpose of these words is to serve as a correct placholder. I need
@@ -40,31 +43,55 @@ const HomePage = (): JSX.Element => {
         <StoriesShowCase />
       </div>
       <section className={styles.aboutPrideOfNigeriaSection}>
-        <h3>ABOUT PRIDE OF NIGERIA</h3>
+        <h3>There's more about the pride of Nigeria than you think.</h3>
         <div className={styles.aboutPrideOfNigeriaCardContainer}>
-          <div>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam
-            minima porro, ut hic doloremque, voluptate dolore ad, deserunt
-            obcaecati quasi esse ab? Officiis aut eaque et delectus expedita
-            architecto cupiditate. Mollitia impedit sunt sint, doloribus minima
-            dolorum illum. Aperiam, eaque recusandae! Natus accusantium
-            voluptate quae tenetur. Cumque omnis accusamus qui.
+          <div className={styles.aboutCard}>
+            <img
+              src="/ts.png"
+              alt="placeholder"
+            />
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam
+              minima porro, ut hic doloremque, voluptate dolore ad, deserunt
+              obcaecati quasi esse ab? Officiis aut eaque et delectus expedita
+              architecto cupiditate. <Link to="/about-us">Read More</Link>
+            </p>
           </div>
-          <div>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam
-            minima porro, ut hic doloremque, voluptate dolore ad, deserunt
-            obcaecati quasi esse ab? Officiis aut eaque et delectus expedita
-            architecto cupiditate. Mollitia impedit sunt sint, doloribus minima
-            dolorum illum. Aperiam, eaque recusandae! Natus accusantium
-            voluptate quae tenetur. Cumque omnis accusamus qui.
+          <div className={styles.aboutCard}>
+            <img
+              src="/ts.png"
+              alt="placeholder"
+            />
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam
+              minima porro, ut hic doloremque, voluptate dolore ad, deserunt
+              obcaecati quasi esse ab? Officiis aut eaque et delectus expedita
+              architecto cupiditate. <Link to="/about-us">Read More</Link>
+            </p>
           </div>
-          <div>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam
-            minima porro, ut hic doloremque, voluptate dolore ad, deserunt
-            obcaecati quasi esse ab? Officiis aut eaque et delectus expedita
-            architecto cupiditate. Mollitia impedit sunt sint, doloribus minima
-            dolorum illum. Aperiam, eaque recusandae! Natus accusantium
-            voluptate quae tenetur. Cumque omnis accusamus qui.
+          <div className={styles.aboutCard}>
+            <img
+              src="/ts.png"
+              alt="placeholder"
+            />
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam
+              minima porro, ut hic doloremque, voluptate dolore ad, deserunt
+              obcaecati quasi esse ab? Officiis aut eaque et delectus expedita
+              architecto cupiditate. <Link to="/about-us">Read More</Link>
+            </p>
+          </div>
+          <div className={styles.aboutCard}>
+            <img
+              src="/ts.png"
+              alt="placeholder"
+            />
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam
+              minima porro, ut hic doloremque, voluptate dolore ad, deserunt
+              obcaecati quasi esse ab? Officiis aut eaque et delectus expedita
+              architecto cupiditate. <Link to="/about-us">Read More</Link>
+            </p>
           </div>
         </div>
       </section>
@@ -75,80 +102,7 @@ const HomePage = (): JSX.Element => {
         </div>
       </section>
       <section className={styles.exploreNewDevelopmentSection}>
-        <div className={styles.exploreNewDevelopmentWidthController}>
-          <h4>
-            Explore new Development in Nigeria and Nigerian Achievers - both
-            Home and Abroad
-          </h4>
-          <p className={styles.subHeading}>
-            Nigerians doing well all over the world Nigerians doing well all
-            over the world
-          </p>
-          <div className={styles.exploreNewDevelopmentCardContainer}>
-            <div className={styles.exploreNewDevelopmentCard}>
-              <div>
-                <img src="/Rectangle 8b.svg" alt="two people smiling" />
-                <p className={styles.ancestryFamilyTree}>PEOPLE</p>
-              </div>
-              <div>
-                <p className={styles.contentForExploreNewSection}>
-                  Make quick family history discoveries with Ancestry Hints Make
-                  quick family history discoveries with Ancestry Hints
-                </p>
-                <button className={styles.exploreNewDevelopmentCardExploreBtn}>
-                  EXPLORE
-                </button>
-              </div>
-            </div>
-            <div className={styles.exploreNewDevelopmentCard}>
-              <div>
-                <img src="/Rectangle 8b.svg" alt="two people smiling" />
-                <p className={styles.ancestryFamilyTree}>NIGERIANS CHOICE</p>
-              </div>
-              <div>
-                <p className={styles.contentForExploreNewSection}>
-                  Make quick family history discoveries with Ancestry Hints Make
-                  quick family history discoveries with Ancestry Hints
-                </p>
-                <button className={styles.exploreNewDevelopmentCardExploreBtn}>
-                  EXPLORE
-                </button>
-              </div>
-            </div>
-            <div className={styles.exploreNewDevelopmentCard}>
-              <div>
-                <img src="/Rectangle 8b.svg" alt="two people smiling" />
-                <p className={styles.ancestryFamilyTree}>
-                  ANCESTRY- FAMILY TREE
-                </p>
-              </div>
-              <div>
-                <p className={styles.contentForExploreNewSection}>
-                  Make quick family history discoveries with Ancestry Hints Make
-                  quick family history discoveries with Ancestry Hints
-                </p>
-                <button className={styles.exploreNewDevelopmentCardExploreBtn}>
-                  EXPLORE
-                </button>
-              </div>
-            </div>
-            <div className={styles.exploreNewDevelopmentCard}>
-              <div>
-                <img src="/Rectangle 8b.svg" alt="two people smiling" />
-                <p className={styles.ancestryFamilyTree}>CHANGE MAKERS</p>
-              </div>
-              <div>
-                <p className={styles.contentForExploreNewSection}>
-                  Make quick family history discoveries with Ancestry Hints Make
-                  quick family history discoveries with Ancestry Hints
-                </p>
-                <button className={styles.exploreNewDevelopmentCardExploreBtn}>
-                  EXPLORE
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Ancestries />
       </section>
       <section className={styles.firstPromotionsSection}>
         <div className={styles.subParent}>
@@ -172,7 +126,10 @@ const HomePage = (): JSX.Element => {
                 </button>
               </div>
               <div>
-                <img src="/Rectangle 8.svg" alt="people smiling" />
+                <img
+                  src="/Rectangle 8.svg"
+                  alt="people smiling"
+                />
               </div>
             </div>
             <div className={styles.card}>
@@ -190,7 +147,10 @@ const HomePage = (): JSX.Element => {
                 </button>
               </div>
               <div>
-                <img src="/Rectangle 8.svg" alt="people smiling" />
+                <img
+                  src="/Rectangle 8.svg"
+                  alt="people smiling"
+                />
               </div>
             </div>
           </div>
@@ -199,7 +159,10 @@ const HomePage = (): JSX.Element => {
       <section className={styles.largeFrameShortVideosOnHomePage}>
         <LargeFrameShortVideosOnHomePage />
       </section>
-      <section id="ourPartners" className={styles.ourPartnersContainer}>
+      <section
+        id="ourPartners"
+        className={styles.ourPartnersContainer}
+      >
         <h3>OUR PARTNERS</h3>
         <div>
           <p>
@@ -209,18 +172,45 @@ const HomePage = (): JSX.Element => {
         </div>
         <div></div>
         <div>
-          <img src="/logo512.png" alt="placholder partner" />
-          <img src="/logo512.png" alt="placholder partner" />
-          <img src="/logo512.png" alt="placholder partner" />
-          <img src="/logo512.png" alt="placholder partner" />
-          <img src="/logo512.png" alt="placholder partner" />
-          <img src="/logo512.png" alt="placholder partner" />
-          <img src="/logo512.png" alt="placholder partner" />
-          <img src="/logo512.png" alt="placholder partner" />
+          <img
+            src="/logo512.png"
+            alt="placholder partner"
+          />
+          <img
+            src="/logo512.png"
+            alt="placholder partner"
+          />
+          <img
+            src="/logo512.png"
+            alt="placholder partner"
+          />
+          <img
+            src="/logo512.png"
+            alt="placholder partner"
+          />
+          <img
+            src="/logo512.png"
+            alt="placholder partner"
+          />
+          <img
+            src="/logo512.png"
+            alt="placholder partner"
+          />
+          <img
+            src="/logo512.png"
+            alt="placholder partner"
+          />
+          <img
+            src="/logo512.png"
+            alt="placholder partner"
+          />
         </div>
       </section>
       <section className={styles.secondPromotionsSection}>
         <SecondPromotionsSection />
+      </section>
+      <section className={styles.displayStatsSection}>
+        <DisplayStatsParent />
       </section>
       <section className={styles.groupsRecommendation}>
         <h4>Groups you may like</h4>
@@ -228,7 +218,10 @@ const HomePage = (): JSX.Element => {
       </section>
       <section className={styles.supportPrideOfNigeriaContainer}>
         <div className={styles.supportPrideOfNgGradient}></div>
-        <img src="/Rectangle 9.png" alt="placeholder background img" />
+        <img
+          src="/Rectangle 9.png"
+          alt="placeholder background img"
+        />
         <div>
           <h2>SUPPORT THE NEXT PRIDE OF NIGERIA</h2>
           <a href="#unknown-do-NOT-click">

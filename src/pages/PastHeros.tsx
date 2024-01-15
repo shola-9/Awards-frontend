@@ -16,15 +16,7 @@ function PastHerosPage() {
   if (herosQuery.isLoading) return <h1>Specific Loader...</h1>;
 
   // check for error
-  if (herosQuery.isError)
-    return (
-      <div className={styles.errorMsg}>
-        <h5>
-          Failed to load data.{" "}
-          <button onClick={() => herosQuery.refetch()}>Try again</button> later.
-        </h5>
-      </div>
-    );
+  if (herosQuery.isError) return <p>No data yet. Check back later</p>;
 
   const renderHeroCards = () => {
     const { data: { message } = {} } = herosQuery;
@@ -37,15 +29,28 @@ function PastHerosPage() {
         >
           <p className={styles.letterRange}>A - C</p>{" "}
           {showMore ? (
-            <img src="/Vector 14b.svg" alt="arrow down" />
+            <img
+              src="/Vector 14b.svg"
+              alt="arrow down"
+            />
           ) : (
-            <img src="/Vector 14.svg" alt="arrow up" />
+            <img
+              src="/Vector 14.svg"
+              alt="arrow up"
+            />
           )}
         </button>
         <div className={styles.pastHerosContainer}>
           {cardsToShow?.map((hero) => (
-            <Link to={`/post/${hero.id}`} key={hero.id} className={styles.link}>
-              <div key={hero.id} className={styles.pastHerosCard}>
+            <Link
+              to={`/post/${hero.id}`}
+              key={hero.id}
+              className={styles.link}
+            >
+              <div
+                key={hero.id}
+                className={styles.pastHerosCard}
+              >
                 <img
                   src={hero.picture}
                   alt={hero.name}

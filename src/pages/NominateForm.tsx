@@ -20,7 +20,7 @@ function NominateFormPage() {
     join_newsletter: "no",
   });
   const navigate = useNavigate();
-  const [displayRegisterForm, setDisplayRegisterForm] = useState(true); // default false
+  const [displayRegisterForm, setDisplayRegisterForm] = useState(false); // default false
   const [toggleRegisterAndLogin, setToggleRegisterAndLogin] = useState(true);
 
   function handleInput(
@@ -90,7 +90,11 @@ function NominateFormPage() {
           </select>
         </div>
         <div className={styles.textInputDiv}>
-          <label htmlFor="hero_name"></label>
+          <div className={styles.label}>
+            <label htmlFor="hero_name">
+              {formData.hero_name && <p>Hero name</p>}
+            </label>
+          </div>
           <input
             type="text"
             name="hero_name"
@@ -102,7 +106,11 @@ function NominateFormPage() {
           />
         </div>
         <div className={styles.textInputDiv}>
-          <label htmlFor="award_reason"></label>
+          <div className={styles.label}>
+            <label htmlFor="award_reason">
+              {formData.award_reason && <p>Award reason</p>}
+            </label>
+          </div>
           <input
             type="text"
             name="award_reason"
@@ -114,7 +122,11 @@ function NominateFormPage() {
           />
         </div>
         <div className={styles.textInputDiv}>
-          <label htmlFor="hero_contact"></label>
+          <div className={styles.label}>
+            <label htmlFor="hero_contact">
+              {formData.hero_contact && <p>Hero contact</p>}
+            </label>
+          </div>
           <input
             type="text"
             name="hero_contact"
@@ -126,7 +138,11 @@ function NominateFormPage() {
           />
         </div>
         <div className={styles.textInputDiv}>
-          <label htmlFor="your_name"></label>
+          <div className={styles.label}>
+            <label htmlFor="your_name">
+              {formData.your_name && <p>Your name</p>}
+            </label>
+          </div>
           <input
             type="text"
             name="your_name"
@@ -139,7 +155,11 @@ function NominateFormPage() {
         </div>
         <div className={styles.emailAndPhoneFlexArea}>
           <div className={styles.textInputDiv}>
-            <label htmlFor="your_email"></label>
+            <div className={styles.label}>
+              <label htmlFor="your_email">
+                {formData.your_email && <p>Your email</p>}
+              </label>
+            </div>
             <input
               type="text"
               name="your_email"
@@ -151,7 +171,11 @@ function NominateFormPage() {
             />
           </div>
           <div className={styles.textInputDiv}>
-            <label htmlFor="phone_number"></label>
+            <div className={styles.label}>
+              <label htmlFor="phone_number">
+                {formData.phone_number && <p>Phone number</p>}
+              </label>
+            </div>
             <input
               type="text"
               name="phone_number"
@@ -164,7 +188,11 @@ function NominateFormPage() {
           </div>
         </div>
         <div className={styles.textInputDiv}>
-          <label htmlFor="contact_you"></label>
+          <div className={styles.label}>
+            <label htmlFor="contact_you">
+              {formData.contact_you && <p>Contact you</p>}
+            </label>
+          </div>
           <input
             type="text"
             name="contact_you"
@@ -207,7 +235,7 @@ function NominateFormPage() {
         </p>
         <p>
           Personal Data will be processed in accordance with the Pride of
-          Nigeria Awards Privacy Policy <a href="">here.</a>
+          Nigeria Awards Privacy Policy <a href="#">here.</a>
         </p>
 
         <div className={styles.submitBtnDiv}>

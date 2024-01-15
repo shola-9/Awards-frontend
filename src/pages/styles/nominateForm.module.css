@@ -88,6 +88,18 @@
   gap: 3rem;
 }
 
+.nominationForm label {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  color: #000;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
 @media screen and (max-width: 768px) {
   .nominationForm {
     background-color: #ededff;

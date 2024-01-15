@@ -68,6 +68,12 @@
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
+  width: 100%;
+  align-items: center;
+}
+
+.logoContainer a:nth-of-type(1) {
+  margin: 0 auto;
 }
 
 .logo {
@@ -75,14 +81,24 @@
   height: 4rem;
 }
 
+.nav a {
+  text-decoration: none;
+}
+
 .nav section a {
-  /* color: #ffffff; */
   text-decoration: none;
   font-size: 1.2rem;
 }
 
-.nav section a:hover {
+.nav section a:hover,
+.logoContainer .logOutBtn:hover {
   cursor: pointer;
+}
+
+.logoContainer .logOutBtn {
+  border: none;
+  color: #ffffff;
+  background: none;
 }
 
 .header {
@@ -98,8 +114,21 @@
   display: none;
 }
 
+.sScreenDisplay {
+  display: none;
+}
+
+.lScreenDisplay {
+  display: flex;
+  gap: 1rem;
+}
+
+.lScreenDisplay div {
+  color: #ffffff;
+}
+
 /* nav responsiveness */
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1024px) {
   .hideOnMobile {
     display: none;
   }
@@ -112,7 +141,7 @@
   .nav section {
     display: block;
     position: sticky;
-    background-color: purple;
+    background-color: #cecece;
     top: 0;
     left: 0;
     width: 100vw;
@@ -121,6 +150,11 @@
 
   .nav section a {
     display: block;
+    color: #000000;
+  }
+
+  .nav button {
+    color: #000000;
   }
 
   .showOnMobileBtn {
@@ -131,5 +165,20 @@
     z-index: 3;
     background-color: #ffffff;
     border: none;
+  }
+
+  .lScreenDisplay {
+    display: none;
+  }
+
+  .sScreenDisplay {
+    display: block;
+  }
+
+  .logOutBtn {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    margin-top: 0.3rem;
   }
 }

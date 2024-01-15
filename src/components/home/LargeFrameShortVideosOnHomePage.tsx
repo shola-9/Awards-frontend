@@ -24,17 +24,7 @@ function LargeFrameShortVideosOnHomePage() {
   }
 
   if (reelLimitedInfoQuery.isError) {
-    return (
-      <div>
-        <h5>
-          Failed to load data.{" "}
-          <button onClick={() => reelLimitedInfoQuery.refetch()}>
-            Try again
-          </button>{" "}
-          later.
-        </h5>
-      </div>
-    );
+    return <p>No data yet. Check back later</p>;
   }
 
   const { data } = reelLimitedInfoQuery;
@@ -43,7 +33,10 @@ function LargeFrameShortVideosOnHomePage() {
     <div className={styles.largeFrameShortVideosOnHome}>
       <div className={styles.largeFrameShortVideosOnHomeContainer}>
         <h4>Short Videos </h4>
-        <Link to="/short-videos" className={styles.seeAll}>
+        <Link
+          to="/short-videos"
+          className={styles.seeAll}
+        >
           See All
         </Link>
       </div>
@@ -59,15 +52,33 @@ function LargeFrameShortVideosOnHomePage() {
               }
             >
               <div className={styles.shortVideoAndDetailsCard}>
-                <video className={styles.shortVideosVideo} controls>
-                  <source src={reel.video} type="video/mp4" />
-                  <source src={reel.video} type="video/webm" />
-                  <source src={reel.video} type="video/mov" />
-                  <source src={reel.video} type="video/avi" />
+                <video
+                  className={styles.shortVideosVideo}
+                  controls
+                >
+                  <source
+                    src={reel.video}
+                    type="video/mp4"
+                  />
+                  <source
+                    src={reel.video}
+                    type="video/webm"
+                  />
+                  <source
+                    src={reel.video}
+                    type="video/mov"
+                  />
+                  <source
+                    src={reel.video}
+                    type="video/avi"
+                  />
                 </video>
                 <div className={styles.likesAndViewsDetails}>
                   <p>
-                    <img src="/icon-park-outline_like.svg" alt="Like icon" />
+                    <img
+                      src="/icon-park-outline_like.svg"
+                      alt="Like icon"
+                    />
                     {reel.likes ?? 0}
                   </p>
                   <p>{reel.views ?? 0} views</p>

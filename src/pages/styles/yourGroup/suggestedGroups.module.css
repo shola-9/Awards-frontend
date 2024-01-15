@@ -40,3 +40,14 @@
   text-decoration: none;
   color: #ffffff;
 }
+
+@media screen and (max-width: 720px) {
+  .groupSuggestionArea .groupArea {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    box-sizing: border-box;
+    gap: 1rem;
+    align-items: center;
+  }
+}

@@ -50,6 +50,37 @@
   align-items: center;
 }
 
+.shortVideosPage .createVideo {
+  display: flex;
+  justify-content: flex-end;
+  padding: 3rem;
+  height: 5rem;
+}
+
+.createVideo button {
+  padding: 1rem 3rem;
+  text-decoration: none;
+  background-color: #046413;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136.4%;
+  border: none;
+  border-radius: 0.625rem;
+}
+
+.createVideo button:hover {
+  cursor: pointer;
+}
+
+.createVideo p {
+  color: #cb2121;
+  margin: 1rem 0 0 0;
+}
+
 /* media query */
 @media screen and (max-width: 720px) {
   .parentReelsContainer {

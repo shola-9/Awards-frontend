@@ -1,0 +1,111 @@
+.awardCandidates {
+  min-height: 100vh;
+  margin: 2rem auto 4rem auto !important;
+  width: 90vw !important;
+}
+
+.awardCandidates .errorMsg {
+  color: #000000;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136.4%;
+}
+
+.description {
+  width: 45%;
+  margin: 1rem auto 0 auto;
+  color: #000;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 186.4%;
+}
+
+.awardCandidates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: fit-content;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.awardCandidates .card {
+  width: 24%;
+  height: 25rem;
+  box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.awardCandidates .card img {
+  width: 100%;
+  height: 70%;
+}
+
+.awardCandidates .btn {
+  width: 100%;
+  border: none;
+  padding: 1rem 0;
+  background-color: #046413;
+  color: #fff;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136.4%;
+}
+
+.awardCandidates .btn:hover {
+  cursor: pointer;
+  background: linear-gradient(76deg, #046413 8.81%, #07ae21 90.01%);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+
+.awardCandidates h4 {
+  color: #000;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136.4%;
+  padding-left: 0.5rem;
+}
+
+.awardCandidates .noticeMsg {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 720px) {
+  .description {
+    width: 90%;
+    margin: 1rem auto 0 auto;
+    color: #000;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 186.4%;
+  }
+  .awardCandidates {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 4rem;
+    width: fit-content;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  .awardCandidates .card {
+    width: 90%;
+    height: 25rem;
+    box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+  }
+}

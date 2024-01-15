@@ -19,3 +19,9 @@
 .container button:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 720px) {
+  .container {
+    width: 100%;
+  }
+}

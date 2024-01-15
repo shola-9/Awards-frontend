@@ -12,3 +12,13 @@
 .story video {
   width: 100%;
 }
+
+@media screen and (max-width: 720px) {
+  .container {
+    width: 100%;
+    flex-direction: column;
+  }
+  .story {
+    width: 100%;
+  }
+}

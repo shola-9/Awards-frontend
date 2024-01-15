@@ -232,5 +232,6 @@
     border-right-color: #00000066;
     border-top-color: #00000066;
     resize: vertical;
+    min-height: 13rem;
   }
 }

@@ -1,0 +1,9 @@
+.loginSignUpBIO {
+  display: flex;
+  justify-content: center;
+}
+
+.loginSignUpBIO p,
+.loginSignUpBIO p a {
+  color: #cc4343;
+}

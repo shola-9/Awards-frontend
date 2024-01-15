@@ -24,7 +24,7 @@ function GetGroupPosts({ club_id }: Props) {
   });
 
   if (getGroupPosts.isLoading) return <p>loading...</p>;
-  if (getGroupPosts.isError) return <p>error</p>;
+  if (getGroupPosts.isError) return <p>No data yet. Check back later</p>;
   if (!getGroupPosts.data) return <p>no data</p>;
 
   async function handleClubPostViews(
@@ -45,7 +45,10 @@ function GetGroupPosts({ club_id }: Props) {
 
     // Map the array of posts to an array of JSX elements
     const postElements = data.clubPosts.map((post) => (
-      <div key={post.club_post_id} className={styles.clubPostContainer}>
+      <div
+        key={post.club_post_id}
+        className={styles.clubPostContainer}
+      >
         <div
           className={styles.clubPostContentArea}
           onMouseLeave={(e) => handleClubPostViews(e, post.club_post_id)}
@@ -54,9 +57,15 @@ function GetGroupPosts({ club_id }: Props) {
             <div className={styles.userInfoAndPostTime}>
               <div>
                 {post.user_img ? (
-                  <img src={post.user_img} alt="user" />
+                  <img
+                    src={post.user_img}
+                    alt="user"
+                  />
                 ) : (
-                  <img src="/Ellipse 49.svg" alt="user" />
+                  <img
+                    src="/Ellipse 49.svg"
+                    alt="user"
+                  />
                 )}
               </div>
               <div>
@@ -72,17 +81,26 @@ function GetGroupPosts({ club_id }: Props) {
           <div className={styles.imagesParent}>
             {post.image_urls && post.image_urls.split(",")[0] && (
               <div className={styles.imgDiv}>
-                <img src={post.image_urls.split(",")[0]} alt="post" />
+                <img
+                  src={post.image_urls.split(",")[0]}
+                  alt="post"
+                />
               </div>
             )}
             {post.image_urls && post.image_urls.split(",")[1] && (
               <div className={styles.imgDiv}>
-                <img src={post.image_urls.split(",")[1]} alt="post" />
+                <img
+                  src={post.image_urls.split(",")[1]}
+                  alt="post"
+                />
               </div>
             )}
             {post.image_urls && post.image_urls.split(",")[2] && (
               <div className={`${styles.imgDiv} ${styles.thirdImg}`}>
-                <img src={post.image_urls.split(",")[2]} alt="post" />
+                <img
+                  src={post.image_urls.split(",")[2]}
+                  alt="post"
+                />
               </div>
             )}
           </div>

@@ -2,20 +2,16 @@ import { useState } from "react";
 import styles from "../../pages/styles/dynamicGroupPageReusable.module.css/createGroupPostForm/createGroupPostForm.module.css";
 import { CreateUserInfoForm } from "../../typesAndInterfaces/createUserInfoForm";
 import postUserinfoFn from "../../lib/user/postUsersInfo";
+import SubHeading from "../app/SubHeading";
 
 // there's no form 2. 1 is added for naming purpose only
 const CreateUserInfoForm1 = () => {
   const [formDataInputs, setFormDataInputs] = useState<CreateUserInfoForm>({
     user_img: "",
     user_phone_number: "",
-    user_email: "",
   });
 
-  function handleChange(
-    event: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value, type } = event.target;
 
     if (type === "file") {
@@ -61,7 +57,6 @@ const CreateUserInfoForm1 = () => {
       setFormDataInputs({
         user_img: "",
         user_phone_number: "",
-        user_email: "",
       });
     } catch (error) {
       console.error(error);
@@ -69,49 +64,58 @@ const CreateUserInfoForm1 = () => {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      encType="multipart/form-data"
-      className={styles.clubPostForm}
-    >
-      <div>
-        <label htmlFor="user_email" className="form-label"></label>
-        <input
-          onChange={handleChange}
-          id="user_email"
-          name="user_email"
-          value={formDataInputs.user_email}
-          placeholder="Write email..."
-          type="email"
-        />
-      </div>
-      <div className={styles.buttonsArea}>
-        <div>
-          <label htmlFor="user_phone_number" className="form-label"></label>
-          <input
-            onChange={handleChange}
-            id="user_phone_number"
-            name="user_phone_number"
-            value={formDataInputs.user_phone_number}
-            placeholder="Write tel..."
-            type="tel"
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="user_img" className="form-label"></label>
-          <input
-            onChange={handleChange}
-            type="file"
-            id="user_img"
-            name="user_img"
-          />
-        </div>
+    <>
+      <SubHeading value="Create profile" />
+      <form
+        onSubmit={handleSubmit}
+        encType="multipart/form-data"
+        className={styles.clubPostForm}
+      >
+        <h4>
+          You will start seeing more interesting information here once you
+          complete your profile.
+        </h4>
+        <div className={styles.buttonsArea}>
+          <div>
+            <label
+              htmlFor="user_phone_number"
+              className="form-label"
+            >
+              Telephone
+            </label>
+            <input
+              onChange={handleChange}
+              id="user_phone_number"
+              name="user_phone_number"
+              value={formDataInputs.user_phone_number}
+              placeholder="Write tel..."
+              type="tel"
+            />
+          </div>
+          <div className="mb-3">
+            <label
+              htmlFor="user_img"
+              className="form-label"
+            >
+              Image
+            </label>
+            <input
+              onChange={handleChange}
+              type="file"
+              id="user_img"
+              name="user_img"
+            />
+          </div>
 
-        <button type="submit" className={styles.submitBtn}>
-          Create Profile
-        </button>
-      </div>
-    </form>
+          <button
+            type="submit"
+            className={styles.submitBtn}
+          >
+            Create Profile
+          </button>
+        </div>
+      </form>
+    </>
   );
 };
 

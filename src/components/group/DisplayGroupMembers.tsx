@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import getClubMembersFn from "../../lib/club/getClubMembers";
 import styles from "./styles/displayGroupMembers.module.css";
+import { Link } from "react-router-dom";
 
 function DisplayGroupMembers({ club_id }: { club_id?: string }) {
   const displayGroupMembersQuery = useQuery({
@@ -13,12 +14,21 @@ function DisplayGroupMembers({ club_id }: { club_id?: string }) {
     },
   });
   if (displayGroupMembersQuery.isLoading) return <p>loading</p>;
-  if (displayGroupMembersQuery.isError) return <p>error</p>;
+  if (displayGroupMembersQuery.isError)
+    return <p>No data yet. Check back later</p>;
   return (
-    <div>
+    <div className={styles.container}>
       {displayGroupMembersQuery.data?.clubMembers.map((member) => (
-        <div key={member.user_id} className={styles.container}>
-          <p>{member.username}</p>
+        <div
+          key={member.user_id}
+          className={styles.card}
+        >
+          <div>
+            <p>{member.username}</p>
+          </div>
+          <div>
+            <Link to={`/chat/${member.user_id}`}>Chat</Link>
+          </div>
         </div>
       ))}
     </div>

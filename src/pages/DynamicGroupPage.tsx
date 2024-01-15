@@ -29,11 +29,11 @@ function DynamicGroupPage() {
   });
 
   if (groupQuery.isLoading) return <p>loading...</p>;
-  if (groupQuery.isError) return <p>error</p>;
+  if (groupQuery.isError) return <p>No data yet. Check back later</p>;
   if (!groupQuery.data) return <p>no data</p>;
 
   if (groupOptionQuery.isLoading) return <p>loading...</p>;
-  if (groupOptionQuery.isError) return <p>error</p>;
+  if (groupOptionQuery.isError) return <p>No data yet. Check back later</p>;
   if (!groupOptionQuery.data) return <p>no data</p>;
 
   if ("club" in groupQuery.data) {

@@ -1,0 +1,43 @@
+.containerIQ2 {
+  padding: 3rem;
+  color: #ffffff;
+}
+
+.containerIQ2 h4 {
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136.4%;
+  margin: 0;
+}
+
+.containerIQ2 .selectContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.containerIQ2 select {
+  padding: 0.75rem 1.25rem;
+  margin: 0.5rem 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+.containerIQ2 table {
+  border-collapse: separate;
+  border-spacing: 0.9375rem; /* Overall spacing between cells */
+}
+
+.containerIQ2 table th,
+.containerIQ2 table td {
+  padding: 1.25rem; /* Additional spacing within cells */
+}
+
+.containerIQ2 .tableContainer {
+  display: flex;
+  justify-content: center;
+}

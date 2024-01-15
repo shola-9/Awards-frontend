@@ -54,7 +54,7 @@ function DynamicPostPage(): JSX.Element {
   }
 
   if (singlePostQuery.isError) {
-    return <div>Error: {singlePostQuery.error.message}</div>;
+    return <p>No data yet. Check back later</p>;
   }
 
   function handleToggleRegisterAndLogin() {

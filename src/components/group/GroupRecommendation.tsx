@@ -10,13 +10,19 @@ function GroupRecommendation() {
   });
 
   if (groupOptionQuery.isLoading) return <p>loading...</p>;
-  if (groupOptionQuery.isError) return <p>error</p>;
+  if (groupOptionQuery.isError) return <p>No data yet. Check back later</p>;
   if (!groupOptionQuery.data) return <p>no data</p>;
   return (
     <div className={styles.container}>
       {groupOptionQuery.data.clubs.map((club) => (
-        <div className={styles.card} key={club.club_id}>
-          <img src={club.club_img} alt={club.club_name} />
+        <div
+          className={styles.card}
+          key={club.club_id}
+        >
+          <img
+            src={club.club_img}
+            alt={club.club_name}
+          />
           <h5>{club.club_name}</h5>
           <div className={styles.info}>
             <p>

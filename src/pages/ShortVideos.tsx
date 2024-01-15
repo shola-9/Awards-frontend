@@ -2,26 +2,36 @@ import { useQuery } from "@tanstack/react-query";
 import SubHeading from "../components/app/SubHeading";
 import getReelsLimitedInfoFn from "../lib/shortVideos/getReelsLimitedInfo";
 import styles from "./styles/shortVideos.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import updateVideoViewsFn from "../lib/shortVideos/updateViews";
+import returnJWT from "../components/global/returnJWT";
 
 function ShortVideos() {
   const [showVideoIcon, setShowVideoIcon] = useState(true);
+  const [postVidErr, setPostVidErr] = useState(false);
+  const navigate = useNavigate();
+
   const reelLimitedInfoQuery = useQuery({
     queryKey: ["reelLimitedInfo"],
     queryFn: getReelsLimitedInfoFn,
   });
 
-  // const updateShortVideosViewsQuery = useQuery({
-  //   queryKey: ["updateShortVideosViews", video_id],
-  //   queryFn: () => {
-  //     if (!video_id) {
-  //       throw new Error("video_id is required");
-  //     }
-  //     return updateVideoViewsFn({ video_id });
-  //   },
-  // })
+  function handleNavigate2PostVideo() {
+    const res = returnJWT();
+
+    if (!res) {
+      console.log("login needed");
+
+      setPostVidErr(true);
+      setTimeout(() => {
+        setPostVidErr(false);
+      }, 10000);
+      return;
+    } else {
+      navigate("/create-short-video");
+    }
+  }
 
   async function handleVideoViews({ video_id }: { video_id: number }) {
     try {
@@ -37,24 +47,24 @@ function ShortVideos() {
   }
 
   if (reelLimitedInfoQuery.isError) {
-    return (
-      <div>
-        <h5>
-          Failed to load data.{" "}
-          <button onClick={() => reelLimitedInfoQuery.refetch()}>
-            Try again
-          </button>{" "}
-          later.
-        </h5>
-      </div>
-    );
+    return <p>No data yet. Check back later</p>;
   }
 
   const { data } = reelLimitedInfoQuery;
 
   return (
-    <article>
+    <article className={styles.shortVideosPage}>
       <SubHeading value="SHORT VIDEOS" />
+      <div className={styles.createVideo}>
+        <div>
+          <button onClick={handleNavigate2PostVideo}>+ Post video</button>
+          {postVidErr && (
+            <div className={styles.postVidErrDiv}>
+              <p>Login to post a video</p>
+            </div>
+          )}
+        </div>
+      </div>
       <div className={styles.parentReelsContainer}>
         {data?.reels.map((reel) => (
           <Link
@@ -66,15 +76,33 @@ function ShortVideos() {
             }
           >
             <div className={styles.shortVideoAndDetailsCard}>
-              <video className={styles.shortVideosVideo} controls>
-                <source src={reel.video} type="video/mp4" />
-                <source src={reel.video} type="video/webm" />
-                <source src={reel.video} type="video/mov" />
-                <source src={reel.video} type="video/avi" />
+              <video
+                className={styles.shortVideosVideo}
+                controls
+              >
+                <source
+                  src={reel.video}
+                  type="video/mp4"
+                />
+                <source
+                  src={reel.video}
+                  type="video/webm"
+                />
+                <source
+                  src={reel.video}
+                  type="video/mov"
+                />
+                <source
+                  src={reel.video}
+                  type="video/avi"
+                />
               </video>
               <div className={styles.likesAndViewsDetails}>
                 <p>
-                  <img src="/icon-park-outline_like.svg" alt="Like icon" />
+                  <img
+                    src="/icon-park-outline_like.svg"
+                    alt="Like icon"
+                  />
                   {reel.likes ?? 0}
                 </p>
                 <p>{reel.views ?? 0} views</p>

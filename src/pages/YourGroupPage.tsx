@@ -19,7 +19,7 @@ function YourGroupPage() {
 
   useEffect(() => {
     if (!token) {
-      navigate("/");
+      navigate("/login");
     }
   }, [token, navigate]);
 
@@ -61,16 +61,26 @@ function YourGroupPage() {
               <button>See all</button>
             </div>
             <div>
-              {clubMembershipListQuery.data?.yourGroups.map((group) => (
-                <div key={group.club_id} className={stylesThree.group}>
-                  <img src={group.club_img} alt="" />
-                  <Link to={`/group/${group.club_id}`}>
-                    {group.club_name.length > 10
-                      ? group.club_name.slice(0, 10) + "..."
-                      : group.club_name}
-                  </Link>
-                </div>
-              ))}
+              {clubMembershipListQuery.data?.yourGroups ? (
+                clubMembershipListQuery.data?.yourGroups.map((group) => (
+                  <div
+                    key={group.club_id}
+                    className={stylesThree.group}
+                  >
+                    <img
+                      src={group.club_img}
+                      alt=""
+                    />
+                    <Link to={`/group/${group.club_id}`}>
+                      {group.club_name.length > 10
+                        ? group.club_name.slice(0, 10) + "..."
+                        : group.club_name}
+                    </Link>
+                  </div>
+                ))
+              ) : (
+                <p>Join a group</p>
+              )}
             </div>
           </div>
           <div>recent views</div>
@@ -110,8 +120,14 @@ function YourGroupPage() {
             <h4>Suggested for you</h4>
             <div className={stylesOne.groupArea}>
               {groupOptionQuery.data?.clubs.map((option) => (
-                <div key={option.club_id} className={stylesOne.card}>
-                  <img src={option.club_img} alt={option.club_name} />
+                <div
+                  key={option.club_id}
+                  className={stylesOne.card}
+                >
+                  <img
+                    src={option.club_img}
+                    alt={option.club_name}
+                  />
                   <div>
                     <h5>{option.club_name}</h5>
                     <Link to={`/group/${option.club_id}`}>View</Link>

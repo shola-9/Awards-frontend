@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { authFn } from "../../lib/user/auth";
 import { useState } from "react";
 import styles from "./register.module.css";
@@ -26,18 +25,8 @@ function Register({
   const [retypePasswordError, setRetypePasswordError] = useState(false);
   const [robotCheck, setRobotCheck] = useState<number | string>("");
   const correctRobotCheckAns = 6;
-
-  const registerQuery = useQuery({
-    queryKey: ["register"],
-    queryFn: () => {
-      const res = authFn(
-        { username, email, password, users_phone_number },
-        "register"
-      );
-      return res;
-    },
-    enabled: false,
-  });
+  const [errMsg, setErrMsg] = useState("");
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -45,8 +34,18 @@ function Register({
       setRetypePasswordError(true);
       return console.log("passwords do not match");
     }
-    await registerQuery.refetch();
-    setDisplayRegisterForm(false);
+
+    try {
+      await authFn(
+        { username, email, password, users_phone_number, setErrMsg },
+        "register"
+      );
+      // Reset error message if authentication succeeds
+      setErrMsg("");
+      setDisplayRegisterForm(false);
+    } catch (error) {
+      // Error is already handled in authFn, so no need to do anything here
+    }
   }
 
   const prevent =
@@ -56,16 +55,22 @@ function Register({
     !username ||
     !users_phone_number;
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles.specialHeight}`}>
       <div
         className={styles.closeForm}
         onClick={(e) => setDisplayRegisterForm(false)}
       >
         X
       </div>
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form
+        onSubmit={handleSubmit}
+        className={styles.form}
+      >
+        {errMsg && <p className={styles.errMsg}>{errMsg}</p>}
         <div>
-          <label htmlFor="username"></label>
+          <div className={styles.label}>
+            <label htmlFor="username">{username && <p>Username</p>}</label>
+          </div>
           <input
             type="text"
             id="username"
@@ -79,7 +84,9 @@ function Register({
           />
         </div>
         <div>
-          <label htmlFor="email"></label>
+          <div className={styles.label}>
+            <label htmlFor="email">{email && <p>Email</p>}</label>
+          </div>
           <input
             type="email"
             id="email"
@@ -93,7 +100,11 @@ function Register({
           />
         </div>
         <div>
-          <label htmlFor="users_phone_number"></label>
+          <div className={styles.label}>
+            <label htmlFor="users_phone_number">
+              {users_phone_number && <p>Phone number</p>}
+            </label>
+          </div>
           <input
             type="users_phone_number"
             id="users_phone_number"
@@ -107,9 +118,11 @@ function Register({
           />
         </div>
         <div>
-          <label htmlFor="password"></label>
+          <div className={styles.label}>
+            <label htmlFor="password">{password && <p>Password</p>}</label>
+          </div>
           <input
-            type="password"
+            type={passwordVisibility ? "text" : "password"}
             id="password"
             name="password"
             placeholder="password"
@@ -119,11 +132,21 @@ function Register({
             aria-required
             autoComplete="new-password"
           />
+          <input
+            type="button"
+            value={passwordVisibility ? "Hide password" : "Show password"}
+            onClick={() => setPasswordVisibility((prev) => !prev)}
+            className={styles.passwordToggle}
+          />
         </div>
         <div>
-          <label htmlFor="re-type password"></label>
+          <div className={styles.label}>
+            <label htmlFor="re-type password">
+              {retypePassword && <p>Retype Password</p>}
+            </label>
+          </div>
           <input
-            type="password"
+            type={passwordVisibility ? "text" : "password"}
             id="re-type password"
             name="re-type password"
             placeholder="re-type password"

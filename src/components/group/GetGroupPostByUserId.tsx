@@ -12,7 +12,8 @@ function GetGroupPostsByUserId() {
   });
 
   if (getGroupPostsByUserIdQuery.isLoading) return <p>loading...</p>;
-  if (getGroupPostsByUserIdQuery.isError) return <p>error</p>;
+  if (getGroupPostsByUserIdQuery.isError)
+    return <p>No data yet. Check back later</p>;
   if (!getGroupPostsByUserIdQuery.data) return <p>no data</p>;
 
   if ("clubPosts" in getGroupPostsByUserIdQuery.data) {
@@ -20,15 +21,24 @@ function GetGroupPostsByUserId() {
 
     // Map the array of posts to an array of JSX elements
     const postElements = data.clubPosts.map((post) => (
-      <div key={post.club_post_id} className={styles.clubPostContainer}>
+      <div
+        key={post.club_post_id}
+        className={styles.clubPostContainer}
+      >
         <div className={styles.clubPostContentArea}>
           <div className={styles.clubPostHeader}>
             <div className={styles.userInfoAndPostTime}>
               <div>
                 {post.user_img ? (
-                  <img src={post.club_img} alt="user" />
+                  <img
+                    src={post.club_img}
+                    alt="user"
+                  />
                 ) : (
-                  <img src="/Ellipse 49.svg" alt="user" />
+                  <img
+                    src="/Ellipse 49.svg"
+                    alt="user"
+                  />
                 )}
               </div>
               <div>
@@ -59,9 +69,11 @@ function GetGroupPostsByUserId() {
 
     // Return the array of JSX elements
     return <div>{postElements}</div>;
-  } else {
+  } else if ("message" in getGroupPostsByUserIdQuery.data) {
     const { message } = getGroupPostsByUserIdQuery.data;
     return <p>{message}</p>;
+  } else {
+    return <p>No data</p>;
   }
 }
 

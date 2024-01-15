@@ -7,7 +7,6 @@ import { useState } from "react";
 import decreaseLikesFn from "../lib/shortVideos/decreaseLikes";
 import createCommentFn from "../lib/shortVideos/createComment";
 import SubHeading from "../components/app/SubHeading";
-import getVideoCommentsFn from "../lib/shortVideos/getVideoComments";
 import Cookies from "js-cookie";
 import {
   WhatsappShareButton,
@@ -76,16 +75,6 @@ function DynamicShortVideoPage() {
     enabled: false,
   });
 
-  const getVideoCommentsQuery = useQuery({
-    queryKey: ["getVideoComments", video_id],
-    queryFn: () => {
-      if (!video_id) {
-        throw new Error("video_id is required");
-      }
-      return getVideoCommentsFn({ video_id });
-    },
-  });
-
   function handleShareGroupDivToggle() {
     setShareGroupDiv((prev) => !prev);
   }
@@ -95,15 +84,7 @@ function DynamicShortVideoPage() {
   }
 
   if (getReelsFullInfoOrderByIdQuery.isError) {
-    return <div>Error: {getReelsFullInfoOrderByIdQuery.error.message}</div>;
-  }
-
-  if (getVideoCommentsQuery.isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (getVideoCommentsQuery.isError) {
-    return <div>Error: {getVideoCommentsQuery.error.message}</div>;
+    return <p>No data yet. Check back later</p>;
   }
 
   function handleLikedClicked() {
@@ -149,20 +130,41 @@ function DynamicShortVideoPage() {
     <div>
       <SubHeading value="Short Videos" />
       {data?.reels.map((reel) => (
-        <div className={styles.videoCard} key={reel.short_videos_id}>
+        <div
+          className={styles.videoCard}
+          key={reel.short_videos_id}
+        >
           <div className={styles.videoOuterDiv}>
-            <video className={styles.video} controls>
-              <source src={reel.video} type="video/mp4" />
-              <source src={reel.video} type="video/webm" />
-              <source src={reel.video} type="video/mov" />
-              <source src={reel.video} type="video/avi" />
+            <video
+              className={styles.video}
+              controls
+            >
+              <source
+                src={reel.video}
+                type="video/mp4"
+              />
+              <source
+                src={reel.video}
+                type="video/webm"
+              />
+              <source
+                src={reel.video}
+                type="video/mov"
+              />
+              <source
+                src={reel.video}
+                type="video/avi"
+              />
             </video>
           </div>
 
           <div className={styles.videoInfo}>
             <div className={styles.creatorInfo}>
-              <img src="/Ellipse 60.png" alt="people" />
-              <h3>{reel.creator}</h3>
+              <img
+                src="/Ellipse 60.png"
+                alt="people"
+              />
+              <h3>{reel.username}</h3>
               <p>{formatTimestampAgo(reel.minutes_ago)}</p>
             </div>
             <div>
@@ -171,11 +173,14 @@ function DynamicShortVideoPage() {
                   <div className="Demo__some-network">
                     <WhatsappShareButton
                       url={`http://localhost:3000/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
-                      title={`Pride of Nigeria | ${reel.creator}`}
+                      title={`Pride of Nigeria | ${reel.username}`}
                       separator=":: "
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <WhatsappIcon size={32} round />
+                      <WhatsappIcon
+                        size={32}
+                        round
+                      />
                     </WhatsappShareButton>
                   </div>
                   <div className="Demo__some-network">
@@ -183,16 +188,22 @@ function DynamicShortVideoPage() {
                       url={`http://localhost:3000/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <FacebookIcon size={32} round />
+                      <FacebookIcon
+                        size={32}
+                        round
+                      />
                     </FacebookShareButton>
                   </div>
                   <div className="Demo__some-network">
                     <TwitterShareButton
                       url={`http://localhost:3000/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
-                      title={`Pride of Nigeria | ${reel.creator}`}
+                      title={`Pride of Nigeria | ${reel.username}`}
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <XIcon size={32} round />
+                      <XIcon
+                        size={32}
+                        round
+                      />
                     </TwitterShareButton>
                   </div>
                   <div className="Demo__some-network">
@@ -200,7 +211,10 @@ function DynamicShortVideoPage() {
                       url={`http://localhost:3000/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <LinkedinIcon size={32} round />
+                      <LinkedinIcon
+                        size={32}
+                        round
+                      />
                     </LinkedinShareButton>
                   </div>
                 </div>
@@ -232,7 +246,10 @@ function DynamicShortVideoPage() {
                   onClick={handleShareGroupDivToggle}
                   className={stylesThree.videoShareBtnDiv}
                 >
-                  <img src="/material-symbols_share.svg" alt="share icon" />
+                  <img
+                    src="/material-symbols_share.svg"
+                    alt="share icon"
+                  />
                 </div>
 
                 <img
@@ -271,11 +288,11 @@ function DynamicShortVideoPage() {
               </p>
             )}
             <div className={styles.reelInfo}>
-              <span className={styles.creatorName}>{reel.creator}: </span>
+              <span className={styles.creatorName}>{reel.username}: </span>
               {reel.detail}
             </div>
             {showCommentsSection[reel.short_videos_id] && (
-              <section>
+              <section style={{ border: "1px solid red" }}>
                 <h4 className={styles.dropAComment}>Drop a Comment</h4>
                 <form onSubmit={handleCommentSubmit}>
                   <div className={styles.inputDiv}>
@@ -296,37 +313,32 @@ function DynamicShortVideoPage() {
                       }
                       type="submit"
                     >
-                      <img src="/Vector 36b.svg" alt="up arrow" />
+                      <img
+                        src="/Vector 36b.svg"
+                        alt="up arrow"
+                      />
                     </button>
                   </div>
                 </form>
                 <section className={styles.commentSection}>
-                  {getVideoCommentsQuery.isLoading && <p>Loading...</p>}
-                  {getVideoCommentsQuery.isError && (
-                    <p>Error: Failed to fetch data. Reload</p>
-                  )}
-                  {getVideoCommentsQuery.data?.comments.length === 0 && (
-                    <p>No comments yet</p>
-                  )}
-                  {getVideoCommentsQuery.data?.comments.map((comment) => (
-                    <div key={`${comment.reels_comments_id}`}>
-                      <div className={styles.commentDiv}>
-                        <div className={styles.creatorImgDiv}>
-                          <img src="/Ellipse 58.svg" alt="creator" />
-                        </div>
-                        <div className={styles.commentInfoDiv}>
-                          <h3>{comment.username}</h3>
-                          <p className={styles.comment}>
-                            {comment.user_comment}
+                  <div>
+                    <div className={styles.commentDiv}>
+                      <div className={styles.commentInfoDiv}>
+                        {reel.comments?.split(",").map((comment, index) => (
+                          <p
+                            key={index}
+                            className={styles.comment}
+                          >
+                            {comment}
                           </p>
-                        </div>
-                      </div>
-
-                      <div className={styles.seeMoreDiv}>
-                        <button className={styles.seeMore}>See more</button>
+                        ))}
                       </div>
                     </div>
-                  ))}
+
+                    {/* <div className={styles.seeMoreDiv}>
+                      <button className={styles.seeMore}>See more</button>
+                    </div> */}
+                  </div>
                 </section>
               </section>
             )}
