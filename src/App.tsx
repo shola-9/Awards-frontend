@@ -46,6 +46,7 @@ import DynamicVoteAwardPage from "./pages/dynamicVoteAward";
 import logOutFn from "./lib/user/logOut";
 import getUserInfoFn from "./lib/user/getUserInfo";
 import { useQuery } from "@tanstack/react-query";
+import { AdminHome } from "./admin/home/home";
 
 function App(): JSX.Element {
   // create routes
@@ -169,6 +170,10 @@ function App(): JSX.Element {
           path="/award/:award_id"
           element={<DynamicVoteAwardPage />}
         />
+        <Route
+          path="/admin"
+          element={<AdminHome />}
+        />
       </Route>
     )
   );
@@ -206,9 +211,6 @@ const Root = (): JSX.Element => {
     queryKey: ["profileInfo"],
     queryFn: getUserInfoFn,
   });
-
-  if (profileInfoQuery.isLoading) return <p>loading...</p>;
-  if (profileInfoQuery.isError) return <p>No data yet. Check back later</p>;
 
   return (
     <>

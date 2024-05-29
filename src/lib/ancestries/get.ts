@@ -20,7 +20,7 @@ export interface AncestriesPost {
 
 async function getAncestriesPostFn(): Promise<AncestriesPostResponse> {
   // returns the most current posts
-  const url = "http://localhost:3000/api/v1/ancestries";
+  const url = "http://localhost:4192/api/v1/ancestries";
 
   const res = await fetch(url, {
     method: "GET",

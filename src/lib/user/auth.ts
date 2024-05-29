@@ -23,7 +23,7 @@ export const authFn = async (
 
   // identifier is either login, signup or reset password
   if (identifier === "login") {
-    url = "http://127.0.0.1:3000/api/v1/users/login";
+    url = "http://127.0.0.1:4192/api/v1/users/login";
   } else if (identifier === "register") {
     url = "http://127.0.0.1:3000/api/v1/users";
   } else if (identifier === "resetPassword") {

@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 async function logOutFn() {
   const token = Cookies.get("token");
 
-  const url = "http://localhost:3000/api/v1/users/logout";
+  const url = "http://localhost:4192/api/v1/users/logout";
 
   const res = await fetch(url, {
     method: "POST",

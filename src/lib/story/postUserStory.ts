@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 async function postUserStoryFn(formData: FormData) {
   const token = Cookies.get("token");
 
-  const url = "http://localhost:3000/api/v1/story";
+  const url = "http://localhost:4192/api/v1/story";
 
   const res = await fetch(url, {
     method: "POST",

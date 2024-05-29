@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./footer.module.css";
 function Footer(): JSX.Element {
   return (
@@ -47,7 +48,10 @@ function Footer(): JSX.Element {
               placeholder="Enter your email"
             />
             <button className={styles.newsletterBtn}>
-              <img src="/Vector 36.svg" alt="send icon" />
+              <img
+                src="/Vector 36.svg"
+                alt="send icon"
+              />
             </button>
           </div>
         </div>
@@ -80,7 +84,9 @@ function Footer(): JSX.Element {
             <li>FAQ</li>
             <li>Casting</li>
             <li>Contact Us</li>
-            <li>Local Schedule</li>
+            <li>
+              <Link to="/admin">Admin</Link>
+            </li>
             <li>Tickets and NBC Studio Tour</li>
           </ul>
         </div>

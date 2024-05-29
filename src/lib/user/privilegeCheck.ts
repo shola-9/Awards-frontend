@@ -1,18 +1,16 @@
-import { NominationForm } from "../typesAndInterfaces/nominationForm";
 import Cookies from "js-cookie";
 
-async function nominationFn({ formData }: { formData: NominationForm }) {
+async function privilegeCheckFn(): Promise<{ privilege: string }> {
   const token = Cookies.get("token");
 
-  const url = "http://localhost:4192/api/v1/nominate";
+  const url = "http://127.0.0.1:4192/api/v1/users/privilegeCheck";
 
   const res = await fetch(url, {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(formData),
   });
 
   // check for if res fails
@@ -28,4 +26,4 @@ async function nominationFn({ formData }: { formData: NominationForm }) {
 
   return data;
 }
-export default nominationFn;
+export default privilegeCheckFn;

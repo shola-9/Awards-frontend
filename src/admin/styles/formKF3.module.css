@@ -1,0 +1,48 @@
+@layer linkBase, labelBase, inputBase, formDivBase;
+
+@layer linkBase {
+  .containerKF3 .navbar a {
+    background-color: #cccccc;
+    padding: 1rem;
+    text-decoration: none;
+    color: #000000;
+  }
+}
+
+@layer labelBase {
+  .containerKF3 label {
+    display: block;
+  }
+}
+
+@layer inputBase {
+  .containerKF3 input {
+    width: 100%;
+  }
+}
+
+@layer formDivBase {
+  .containerKF3 section {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+
+  .containerKF3 section > div {
+    width: 40%;
+    border: 1px solid red;
+  }
+}
+
+.containerKF3 {
+  border: 1px solid red;
+}
+
+.containerKF3 .navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  column-gap: 1rem;
+}
