@@ -14,7 +14,7 @@ async function getRankingByAwardFn({
 }: {
   award_id: number;
 }): Promise<RankingByAwardResponse> {
-  const url = `http://localhost:3000/api/v1/vote/getRankingByAward?award_id=${award_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/vote/getRankingByAward?award_id=${award_id}`;
 
   const res = await fetch(url, {
     method: "GET",

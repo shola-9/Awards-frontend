@@ -9,7 +9,7 @@ async function postChatFn({
 }) {
   const token = Cookies.get("token");
 
-  const url = `http://localhost:3000/api/v1/chat`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/chat`;
 
   const res = await fetch(url, {
     method: "POST",
@@ -33,7 +33,6 @@ async function postChatFn({
 
   // get good res at this stage
   const data = await res.json();
-  console.log(data);
 
   return data;
 }

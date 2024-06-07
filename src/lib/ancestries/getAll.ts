@@ -1,7 +1,8 @@
 import { AncestriesPostResponse } from "../../typesAndInterfaces/ancestries";
 async function getAllAncestriesPostFn(): Promise<AncestriesPostResponse> {
   // returns the most current posts
-  const url = "http://localhost:3000/api/v1/ancestries/getAllAncestriesPosts";
+  const url =
+    "https://e-awards.ooshinfo.com/api/v1/ancestries/getAllAncestriesPosts";
 
   const res = await fetch(url, {
     method: "GET",

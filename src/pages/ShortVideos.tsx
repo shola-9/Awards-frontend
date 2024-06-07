@@ -21,8 +21,6 @@ function ShortVideos() {
     const res = returnJWT();
 
     if (!res) {
-      console.log("login needed");
-
       setPostVidErr(true);
       setTimeout(() => {
         setPostVidErr(false);
@@ -76,33 +74,15 @@ function ShortVideos() {
             }
           >
             <div className={styles.shortVideoAndDetailsCard}>
-              <video
-                className={styles.shortVideosVideo}
-                controls
-              >
-                <source
-                  src={reel.video}
-                  type="video/mp4"
-                />
-                <source
-                  src={reel.video}
-                  type="video/webm"
-                />
-                <source
-                  src={reel.video}
-                  type="video/mov"
-                />
-                <source
-                  src={reel.video}
-                  type="video/avi"
-                />
+              <video className={styles.shortVideosVideo} controls>
+                <source src={reel.video} type="video/mp4" />
+                <source src={reel.video} type="video/webm" />
+                <source src={reel.video} type="video/mov" />
+                <source src={reel.video} type="video/avi" />
               </video>
               <div className={styles.likesAndViewsDetails}>
                 <p>
-                  <img
-                    src="/icon-park-outline_like.svg"
-                    alt="Like icon"
-                  />
+                  <img src="/icon-park-outline_like.svg" alt="Like icon" />
                   {reel.likes ?? 0}
                 </p>
                 <p>{reel.views ?? 0} views</p>

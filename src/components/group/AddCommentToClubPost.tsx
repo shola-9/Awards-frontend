@@ -11,7 +11,7 @@ function AddCommentToClubPost({ club_post_id }: { club_post_id: number }) {
     if (!club_post_id && !club_post_comment) return;
     const res = await addCommentToPostFn({ club_post_id, club_post_comment });
     if (!res.ok) {
-      console.log(res);
+      return;
     }
     console.log("clicked" + res);
     setClub_post_comment("");

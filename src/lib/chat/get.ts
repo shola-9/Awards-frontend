@@ -20,7 +20,7 @@ async function getChatFn({
 }): Promise<ChatResponse> {
   const token = Cookies.get("token");
 
-  const url = `http://localhost:3000/api/v1/chat?sender_id=${sender_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/chat?sender_id=${sender_id}`;
 
   const res = await fetch(url, {
     method: "GET",
@@ -40,8 +40,6 @@ async function getChatFn({
 
   // get good res at this stage
   const data = await res.json();
-  console.log(data);
-
   return data;
 }
 export default getChatFn;

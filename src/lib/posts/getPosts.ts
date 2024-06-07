@@ -3,7 +3,7 @@ import { Response } from "../../typesAndInterfaces/plan";
 async function getPostsFn(): Promise<Response> {
   // returns the most current posts
   const url =
-    "http://localhost:3000/api/v1/posts/getAllPostsWithTotalCommentNumber";
+    "https://e-awards.ooshinfo.com/api/v1/posts/getAllPostsWithTotalCommentNumber";
 
   const res = await fetch(url, {
     method: "GET",

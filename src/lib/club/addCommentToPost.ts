@@ -5,7 +5,7 @@ export default async function addCommentToPostFn({
   club_post_id: number;
   club_post_comment: string;
 }) {
-  const url = `http://localhost:3000/api/v1/club/postCommentToPost?club_post_id=${club_post_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/club/postCommentToPost?club_post_id=${club_post_id}`;
 
   const response = await fetch(url, {
     method: "POST",

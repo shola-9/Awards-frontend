@@ -130,40 +130,19 @@ function DynamicShortVideoPage() {
     <div>
       <SubHeading value="Short Videos" />
       {data?.reels.map((reel) => (
-        <div
-          className={styles.videoCard}
-          key={reel.short_videos_id}
-        >
+        <div className={styles.videoCard} key={reel.short_videos_id}>
           <div className={styles.videoOuterDiv}>
-            <video
-              className={styles.video}
-              controls
-            >
-              <source
-                src={reel.video}
-                type="video/mp4"
-              />
-              <source
-                src={reel.video}
-                type="video/webm"
-              />
-              <source
-                src={reel.video}
-                type="video/mov"
-              />
-              <source
-                src={reel.video}
-                type="video/avi"
-              />
+            <video className={styles.video} controls>
+              <source src={reel.video} type="video/mp4" />
+              <source src={reel.video} type="video/webm" />
+              <source src={reel.video} type="video/mov" />
+              <source src={reel.video} type="video/avi" />
             </video>
           </div>
 
           <div className={styles.videoInfo}>
             <div className={styles.creatorInfo}>
-              <img
-                src="/Ellipse 60.png"
-                alt="people"
-              />
+              <img src="/Ellipse 60.png" alt="people" />
               <h3>{reel.username}</h3>
               <p>{formatTimestampAgo(reel.minutes_ago)}</p>
             </div>
@@ -172,49 +151,37 @@ function DynamicShortVideoPage() {
                 <div className={stylesThree.shareGroupDivInShortVideos}>
                   <div className="Demo__some-network">
                     <WhatsappShareButton
-                      url={`http://localhost:3000/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
+                      url={`https://e-awards.ooshinfo.com/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
                       title={`Pride of Nigeria | ${reel.username}`}
                       separator=":: "
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <WhatsappIcon
-                        size={32}
-                        round
-                      />
+                      <WhatsappIcon size={32} round />
                     </WhatsappShareButton>
                   </div>
                   <div className="Demo__some-network">
                     <FacebookShareButton
-                      url={`http://localhost:3000/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
+                      url={`https://e-awards.ooshinfo.com/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <FacebookIcon
-                        size={32}
-                        round
-                      />
+                      <FacebookIcon size={32} round />
                     </FacebookShareButton>
                   </div>
                   <div className="Demo__some-network">
                     <TwitterShareButton
-                      url={`http://localhost:3000/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
+                      url={`https://e-awards.ooshinfo.com/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
                       title={`Pride of Nigeria | ${reel.username}`}
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <XIcon
-                        size={32}
-                        round
-                      />
+                      <XIcon size={32} round />
                     </TwitterShareButton>
                   </div>
                   <div className="Demo__some-network">
                     <LinkedinShareButton
-                      url={`http://localhost:3000/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
+                      url={`https://e-awards.ooshinfo.com/api/v1/shortVideos/getFullInfo?video_id=${reel.short_videos_id}`}
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <LinkedinIcon
-                        size={32}
-                        round
-                      />
+                      <LinkedinIcon size={32} round />
                     </LinkedinShareButton>
                   </div>
                 </div>
@@ -246,10 +213,7 @@ function DynamicShortVideoPage() {
                   onClick={handleShareGroupDivToggle}
                   className={stylesThree.videoShareBtnDiv}
                 >
-                  <img
-                    src="/material-symbols_share.svg"
-                    alt="share icon"
-                  />
+                  <img src="/material-symbols_share.svg" alt="share icon" />
                 </div>
 
                 <img
@@ -292,7 +256,7 @@ function DynamicShortVideoPage() {
               {reel.detail}
             </div>
             {showCommentsSection[reel.short_videos_id] && (
-              <section style={{ border: "1px solid red" }}>
+              <section>
                 <h4 className={styles.dropAComment}>Drop a Comment</h4>
                 <form onSubmit={handleCommentSubmit}>
                   <div className={styles.inputDiv}>
@@ -313,10 +277,7 @@ function DynamicShortVideoPage() {
                       }
                       type="submit"
                     >
-                      <img
-                        src="/Vector 36b.svg"
-                        alt="up arrow"
-                      />
+                      <img src="/Vector 36b.svg" alt="up arrow" />
                     </button>
                   </div>
                 </form>
@@ -325,10 +286,7 @@ function DynamicShortVideoPage() {
                     <div className={styles.commentDiv}>
                       <div className={styles.commentInfoDiv}>
                         {reel.comments?.split(",").map((comment, index) => (
-                          <p
-                            key={index}
-                            className={styles.comment}
-                          >
+                          <p key={index} className={styles.comment}>
                             {comment}
                           </p>
                         ))}

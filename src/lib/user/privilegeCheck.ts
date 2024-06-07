@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 async function privilegeCheckFn(): Promise<{ privilege: string }> {
   const token = Cookies.get("token");
 
-  const url = "http://127.0.0.1:4192/api/v1/users/privilegeCheck";
+  const url = "https://e-awards.ooshinfo.com/api/v1/users/privilegeCheck";
 
   const res = await fetch(url, {
     method: "GET",

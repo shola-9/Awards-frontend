@@ -11,7 +11,7 @@ export interface Story {
 }
 
 async function getAllStoriesFn(): Promise<GetAllStoriesResponse> {
-  const url = "http://localhost:3000/api/v1/story";
+  const url = "https://e-awards.ooshinfo.com/api/v1/story";
 
   const res = await fetch(url, {
     method: "GET",

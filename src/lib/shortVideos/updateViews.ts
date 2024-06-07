@@ -1,5 +1,5 @@
 async function updateVideoViewsFn({ video_id }: { video_id: number }) {
-  const url = `http://localhost:3000/api/v1/shortVideos/updateVideoViewsCount?video_id=${video_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/shortVideos/updateVideoViewsCount?video_id=${video_id}`;
 
   const res = await fetch(url, {
     method: "PUT",
@@ -18,8 +18,6 @@ async function updateVideoViewsFn({ video_id }: { video_id: number }) {
 
   // get good res at this stage
   const data = await res.json();
-  console.log({ data });
-
   return data;
 }
 export default updateVideoViewsFn;

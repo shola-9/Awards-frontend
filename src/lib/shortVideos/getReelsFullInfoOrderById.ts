@@ -6,7 +6,7 @@ async function getReelsFullInfoOrderByIdFn({
   video_id: string;
 }): Promise<Response> {
   // returns the most current posts
-  const url = `http://localhost:3000/api/v1/shortVideos/getFullInfo?video_id=${video_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/shortVideos/getFullInfo?video_id=${video_id}`;
 
   const res = await fetch(url, {
     method: "GET",

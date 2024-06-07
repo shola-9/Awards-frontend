@@ -1,10 +1,6 @@
 import { token } from "../user/getToken";
 async function createPostFn(formData: FormData) {
-  console.log(token);
-
-  console.log(formData);
-
-  const url = "http://127.0.0.1:4192/api/v1/posts";
+  const url = "https://e-awards.ooshinfo.com/api/v1/posts";
 
   const res = await fetch(url, {
     method: "POST",

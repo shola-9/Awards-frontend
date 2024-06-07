@@ -32,7 +32,6 @@ function PostReactionIcons({
   async function handleIncreaseClubPostClick(club_post_id: number) {
     try {
       await increaseClubPostLikesFn({ club_post_id });
-      console.log("liked");
       setShowLikedIcon(true);
     } catch (error) {
       console.log(error);
@@ -42,7 +41,6 @@ function PostReactionIcons({
   async function handledecreaseClubPostClick(club_post_id: number) {
     try {
       await decreaseClubPostLikesFn({ club_post_id });
-      console.log("liked");
       setShowLikedIcon(false);
     } catch (error) {
       console.log(error);

@@ -6,7 +6,8 @@ async function searchPostsByYear({
   year: string;
 }): Promise<Response> {
   // returns the most current posts
-  const url = "http://localhost:3000/api/v1/posts/getPostsByYear?year=" + year;
+  const url =
+    "https://e-awards.ooshinfo.com/api/v1/posts/getPostsByYear?year=" + year;
 
   const res = await fetch(url, {
     method: "GET",

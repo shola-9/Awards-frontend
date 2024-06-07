@@ -13,7 +13,7 @@ async function searchForClubFn({
 }: {
   club_name: string;
 }): Promise<ClubPostSearchResponse> {
-  const url = `http://localhost:3000/api/v1/club/searchForClub?club_name=${encodeURIComponent(
+  const url = `https://e-awards.ooshinfo.com/api/v1/club/searchForClub?club_name=${encodeURIComponent(
     club_name
   )}`;
 
@@ -34,8 +34,6 @@ async function searchForClubFn({
 
   // get good res at this stage
   const data = await res.json();
-  console.log({ data });
-
   return data;
 }
 export default searchForClubFn;

@@ -5,7 +5,7 @@ async function getVideoCommentsFn({
 }: {
   video_id: string;
 }): Promise<VideoCommentsResponse> {
-  const url = `http://localhost:3000/api/v1/shortVideos/getShortVideosComments?video_id=${video_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/shortVideos/getShortVideosComments?video_id=${video_id}`;
 
   const res = await fetch(url, {
     method: "GET",

@@ -8,7 +8,7 @@ export default async function getClubByIdFn({
 }: {
   club_id: string;
 }): Promise<SpecificClubArrRes | AlternativeClubsRes> {
-  const url = `http://localhost:3000/api/v1/club/getClubById?club_id=${club_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/club/getClubById?club_id=${club_id}`;
 
   const response = await fetch(url, {
     method: "GET",

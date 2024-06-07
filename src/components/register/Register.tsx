@@ -32,7 +32,7 @@ function Register({
     event.preventDefault();
     if (retypePassword !== password) {
       setRetypePasswordError(true);
-      return console.log("passwords do not match");
+      return;
     }
 
     try {
@@ -62,10 +62,7 @@ function Register({
       >
         X
       </div>
-      <form
-        onSubmit={handleSubmit}
-        className={styles.form}
-      >
+      <form onSubmit={handleSubmit} className={styles.form}>
         {errMsg && <p className={styles.errMsg}>{errMsg}</p>}
         <div>
           <div className={styles.label}>

@@ -4,7 +4,7 @@ import { GetUserInfoResponse } from "../../typesAndInterfaces/getUserInfo";
 async function getUserInfoFn(): Promise<GetUserInfoResponse> {
   const token = Cookies.get("token");
 
-  const url = "http://localhost:3000/api/v1/users/getUserInfo";
+  const url = "https://e-awards.ooshinfo.com/api/v1/users/getUserInfo";
 
   const res = await fetch(url, {
     method: "GET",

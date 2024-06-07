@@ -11,7 +11,7 @@ export interface StoryByUserId {
 }
 
 async function getStoryByUserIdFn(): Promise<GetStoryByUserIdResponse> {
-  const url = "http://localhost:3000/api/v1/story/getStoryByUserId";
+  const url = "https://e-awards.ooshinfo.com/api/v1/story/getStoryByUserId";
 
   const token = Cookies.get("token");
 

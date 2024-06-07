@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 async function logOutFn() {
   const token = Cookies.get("token");
 
-  const url = "http://localhost:4192/api/v1/users/logout";
+  const url = "https://e-awards.ooshinfo.com/api/v1/users/logout";
 
   const res = await fetch(url, {
     method: "POST",
@@ -23,7 +23,6 @@ async function logOutFn() {
 
   // get good res at this stage
   const data = await res.json();
-  console.log(data);
 
   Cookies.remove("token", {
     path: "/",

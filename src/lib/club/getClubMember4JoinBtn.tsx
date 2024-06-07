@@ -19,7 +19,7 @@ export default async function getClubMember4JoinBtnFn({
 }: {
   club_id: string;
 }): Promise<ClubMemberResponse | AlternativeClubMemberResponse> {
-  const url = `http://localhost:3000/api/v1/club/getClubMember4JoinBtn?club_id=${club_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/club/getClubMember4JoinBtn?club_id=${club_id}`;
 
   const token = Cookies.get("token");
 

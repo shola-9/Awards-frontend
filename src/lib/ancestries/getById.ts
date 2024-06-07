@@ -23,7 +23,7 @@ async function getAncestriesPostByIdFn(
   ancestries_postid: string
 ): Promise<AncestriesPostResponse> {
   // returns the most current posts
-  const url = `http://localhost:3000/api/v1/ancestries/getAncestriesPostById?ancestries_postid=${ancestries_postid}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/ancestries/getAncestriesPostById?ancestries_postid=${ancestries_postid}`;
 
   const res = await fetch(url, {
     method: "GET",

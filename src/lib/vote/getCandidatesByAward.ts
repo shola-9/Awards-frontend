@@ -8,7 +8,7 @@ async function getCandidatesByAwardFn({
   award_id: string;
   setErrMsg: React.Dispatch<React.SetStateAction<string>>;
 }): Promise<CandidateResponse> {
-  const url = `http://localhost:3000/api/v1/vote/getAwardCandidates?award_id=${award_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/vote/getAwardCandidates?award_id=${award_id}`;
 
   const token = Cookies.get("token");
 

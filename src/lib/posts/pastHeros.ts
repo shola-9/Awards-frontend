@@ -2,7 +2,8 @@ import { Response } from "../../typesAndInterfaces/plan";
 
 async function pastHerosFn(): Promise<Response> {
   // returns the most current posts
-  const url = "http://localhost:3000/api/v1/posts/getPostsByTagPastHeros";
+  const url =
+    "https://e-awards.ooshinfo.com/api/v1/posts/getPostsByTagPastHeros";
 
   const res = await fetch(url, {
     method: "GET",

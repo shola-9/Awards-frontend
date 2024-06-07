@@ -3,7 +3,7 @@
 import { Response } from "../typesAndInterfaces/plan";
 
 async function fetchPostsFn(): Promise<Response> {
-  const url = "http://localhost:4192/api/v1/posts/getWinnersOnHomePage";
+  const url = "https://e-awards.ooshinfo.com/api/v1/posts/getWinnersOnHomePage";
 
   const res = await fetch(url, {
     method: "GET",

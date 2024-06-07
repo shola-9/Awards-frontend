@@ -4,7 +4,7 @@ export default async function deleteClubMemberFn({
 }: {
   club_id: string;
 }) {
-  const url = `http://localhost:3000/api/v1/club/deleteClubMember?club_id=${club_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/club/deleteClubMember?club_id=${club_id}`;
 
   const token = Cookies.get("token");
 

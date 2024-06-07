@@ -5,7 +5,7 @@ async function getStoryByStoryIdFn({
 }: {
   story_id: string;
 }): Promise<StoryByStoryIdResponse> {
-  const url = `http://localhost:3000/api/v1/story/getStoryByStoryId?story_id=${story_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/story/getStoryByStoryId?story_id=${story_id}`;
 
   const res = await fetch(url, {
     method: "GET",

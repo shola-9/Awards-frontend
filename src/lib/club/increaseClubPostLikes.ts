@@ -3,7 +3,7 @@ async function increaseClubPostLikesFn({
 }: {
   club_post_id: number;
 }) {
-  const url = `http://localhost:3000/api/v1/club/increaseClubPostLikes?club_post_id=${club_post_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/club/increaseClubPostLikes?club_post_id=${club_post_id}`;
 
   const res = await fetch(url, {
     method: "PUT",

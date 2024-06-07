@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 async function postUserinfoFn(formData: FormData) {
   const token = Cookies.get("token");
 
-  const url = "http://localhost:3000/api/v1/users/completeUserInfo";
+  const url = "https://e-awards.ooshinfo.com/api/v1/users/completeUserInfo";
 
   const res = await fetch(url, {
     method: "POST",
@@ -23,7 +23,6 @@ async function postUserinfoFn(formData: FormData) {
 
   // get good res at this stage
   const data = await res.json();
-  console.log(data);
 
   return data;
 }

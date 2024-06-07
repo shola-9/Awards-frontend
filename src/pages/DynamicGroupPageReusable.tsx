@@ -91,13 +91,11 @@ function DynamicGroupPageReusable({
   function handleCreateMemberSubmit() {
     createMemberQuery.refetch();
     setShowJoinBtn(false);
-    console.log("joined group");
   }
 
   function handleUnJoinGroupSubmit() {
     unJoinGroupQuery.refetch();
     setShowJoinBtn(true);
-    console.log("deleted from group");
   }
 
   function handleShowMembers() {
@@ -119,16 +117,10 @@ function DynamicGroupPageReusable({
   if (!showJoinBtnQuery.data) return <h1>Nothing</h1>;
 
   return (
-    <section
-      className={styles.mainContainer}
-      style={{ padding: 0, margin: 0 }}
-    >
+    <section className={styles.mainContainer} style={{ padding: 0, margin: 0 }}>
       <SubHeading value="GROUP" />
       <div className={stylesOne.imgArea}>
-        <img
-          src="/Rectangle 108.svg"
-          alt="group"
-        />
+        <img src="/Rectangle 108.svg" alt="group" />
       </div>
       <section className={stylesOne.viewMembersOrPostArea}>
         <div>
@@ -170,15 +162,9 @@ function DynamicGroupPageReusable({
           <div className={stylesFive.createGroupPostArea}>
             <div className={stylesFive.userImg}>
               {profile ? (
-                <img
-                  src={profile}
-                  alt="group"
-                />
+                <img src={profile} alt="group" />
               ) : (
-                <img
-                  src="/Ellipse 48.svg"
-                  alt="group"
-                />
+                <img src="/Ellipse 48.svg" alt="group" />
               )}
             </div>
             <div className={stylesTwo.createGroupPostDiv}>
@@ -235,10 +221,7 @@ function DynamicGroupPageReusable({
                       separator=":: "
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <WhatsappIcon
-                        size={32}
-                        round
-                      />
+                      <WhatsappIcon size={32} round />
                     </WhatsappShareButton>
                   </div>
                   <div className="Demo__some-network">
@@ -246,10 +229,7 @@ function DynamicGroupPageReusable({
                       url={`https://localhost:3001/group/${club.club_id}`}
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <FacebookIcon
-                        size={32}
-                        round
-                      />
+                      <FacebookIcon size={32} round />
                     </FacebookShareButton>
                   </div>
                   <div className="Demo__some-network">
@@ -258,10 +238,7 @@ function DynamicGroupPageReusable({
                       title={`Pride of Nigeria | ${club.club_name}`}
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <XIcon
-                        size={32}
-                        round
-                      />
+                      <XIcon size={32} round />
                     </TwitterShareButton>
                   </div>
                   <div className="Demo__some-network">
@@ -269,10 +246,7 @@ function DynamicGroupPageReusable({
                       url={`http://localhost:3001/group/${club.club_id}`}
                       className={`Demo__some-network__share-button ${stylesThree.icon}`}
                     >
-                      <LinkedinIcon
-                        size={32}
-                        round
-                      />
+                      <LinkedinIcon size={32} round />
                     </LinkedinShareButton>
                   </div>
                 </div>
@@ -292,14 +266,8 @@ function DynamicGroupPageReusable({
             <h4>Other Groups</h4>
             <div className={stylesFour.cardContainer}>
               {clubOptions.map((option) => (
-                <div
-                  key={option.club_id}
-                  className={stylesFour.card}
-                >
-                  <img
-                    src={option.club_img}
-                    alt={option.club_name}
-                  />
+                <div key={option.club_id} className={stylesFour.card}>
+                  <img src={option.club_img} alt={option.club_name} />
                   <div className={stylesFour.contentCard}>
                     <h5>
                       {option.club_name.length > 10

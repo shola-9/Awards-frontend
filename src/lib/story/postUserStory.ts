@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 async function postUserStoryFn(formData: FormData) {
   const token = Cookies.get("token");
 
-  const url = "http://localhost:4192/api/v1/story";
+  const url = "https://e-awards.ooshinfo.com/api/v1/story";
 
   const res = await fetch(url, {
     method: "POST",

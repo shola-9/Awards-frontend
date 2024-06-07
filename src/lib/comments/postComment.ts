@@ -14,7 +14,7 @@ async function postCommentFn(
 ): Promise<Response> {
   const token = Cookies.get("token");
 
-  const url = `http://localhost:3000/api/v1/comments?post_id=${post_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/comments?post_id=${post_id}`;
 
   const res = await fetch(url, {
     method: "POST",

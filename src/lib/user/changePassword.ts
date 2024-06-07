@@ -9,7 +9,7 @@ export const changePasswordFn = async ({
   newPassword: string;
   setErrMsg: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  const url = "http://127.0.0.1:3000/api/v1/users/changePassword";
+  const url = "https://e-awards.ooshinfo.com/api/v1/users/changePassword";
 
   const token = Cookies.get("token");
 
@@ -57,7 +57,6 @@ export const changePasswordFn = async ({
 
   // get good res at this stage
   const data = await res.json();
-  console.log(data);
 
   return data;
 };

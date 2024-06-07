@@ -12,7 +12,7 @@ export interface YourGroup {
 }
 
 export default async function clubMembershipFn(): Promise<YourGroupResponse> {
-  const url = `http://localhost:3000/api/v1/club/getGroupsByMemberId`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/club/getGroupsByMemberId`;
 
   const token = Cookies.get("token");
 

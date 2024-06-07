@@ -1,7 +1,7 @@
 import returnJWT from "../../components/global/returnJWT";
 
 async function uploadShortVideoFn(formData: FormData) {
-  const url = `http://localhost:3000/api/v1/shortVideos`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/shortVideos`;
 
   const res = await fetch(url, {
     method: "POST",
@@ -21,8 +21,6 @@ async function uploadShortVideoFn(formData: FormData) {
 
   // get good res at this stage
   const data = await res.json();
-  console.log({ data });
-
   return data;
 }
 export default uploadShortVideoFn;

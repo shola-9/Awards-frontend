@@ -1,7 +1,8 @@
 import { Response } from "../../typesAndInterfaces/shortVideos";
 
 async function getReelsLimitedInfoForHomeFn(): Promise<Response> {
-  const url = "http://localhost:3000/api/v1/shortVideos/getLimitedInfoForHome";
+  const url =
+    "https://e-awards.ooshinfo.com/api/v1/shortVideos/getLimitedInfoForHome";
 
   const res = await fetch(url, {
     method: "GET",

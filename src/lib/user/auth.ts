@@ -23,17 +23,14 @@ export const authFn = async (
 
   // identifier is either login, signup or reset password
   if (identifier === "login") {
-    url = "http://127.0.0.1:4192/api/v1/users/login";
+    url = "https://e-awards.ooshinfo.com/api/v1/users/login";
   } else if (identifier === "register") {
-    url = "http://127.0.0.1:3000/api/v1/users";
+    url = "https://e-awards.ooshinfo.com/api/v1/users";
   } else if (identifier === "resetPassword") {
-    url =
-      "https://actionsmm-backend-production.up.railway.app/api/v1/auth/reset-password";
+    url = "https://e-awards.ooshinfo.com/api/v1/auth/reset-password";
   } else {
     throw new Error("Invalid identifier");
   }
-
-  console.log(token);
 
   // attempt fetch
   const res = await fetch(url, {

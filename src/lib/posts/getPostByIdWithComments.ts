@@ -8,7 +8,7 @@ async function getPostByIdWithCommentsFn({
 }): Promise<Post> {
   const token = Cookies.get("token");
   // returns the most current posts
-  const url = `http://localhost:3000/api/v1/posts/getPostByIdWithComments?post_id=${post_id}`;
+  const url = `https://e-awards.ooshinfo.com/api/v1/posts/getPostByIdWithComments?post_id=${post_id}`;
 
   const res = await fetch(url, {
     method: "GET",
